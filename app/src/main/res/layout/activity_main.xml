@@ -115,7 +115,7 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btLogin"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:background="@drawable/custome_button"
@@ -140,7 +140,7 @@
             app:layout_constraintEnd_toStartOf="@+id/textView4"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button"
+            app:layout_constraintTop_toBottomOf="@+id/btLogin"
             app:layout_constraintVertical_bias="0.0" />
 
 
@@ -158,7 +158,7 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button"
+            app:layout_constraintTop_toBottomOf="@+id/btLogin"
             app:layout_constraintVertical_bias="0.0" />
 
 
