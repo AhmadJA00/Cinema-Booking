@@ -19,9 +19,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
-public class PostServices  extends AsyncTask<String, Void, ApiResponse> {
-    private PostListener listener;
-    public PostServices(PostListener listener) {
+public class OtherPostServices extends AsyncTask<String, Void, ApiResponse> {
+    private otherPostListener listener;
+    public OtherPostServices(otherPostListener listener) {
         this.listener = listener;
     }
     private ApiResponse _apiResponse = new ApiResponse();
@@ -89,14 +89,14 @@ public class PostServices  extends AsyncTask<String, Void, ApiResponse> {
     @Override
     protected void onPostExecute(ApiResponse result) {
         if (result.IsSuccess) {
-            listener.onPostSuccess(result);
+            listener.onOtherPostSuccess(result);
         } else {
-            listener.onPostFailure(result);
+            listener.onOtherPostFailure(result);
         }
     }
-    public interface PostListener {
-        void onPostSuccess(ApiResponse response);
+    public interface otherPostListener {
+        void onOtherPostSuccess(ApiResponse response);
 
-        void onPostFailure(ApiResponse response);
+        void onOtherPostFailure(ApiResponse response);
     }
 }
