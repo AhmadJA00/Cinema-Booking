@@ -81,15 +81,19 @@
             android:id="@+id/checkBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:buttonTint="#535353"
             android:checked="false"
+
+            android:clickable="false"
+            android:contextClickable="false"
+            android:duplicateParentState="false"
             android:onClick="setCheck"
             android:text="Remeber Me"
             android:textColor="@color/grayText"
             android:textSize="11dp"
-
+            tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="-7dp"
-            tools:layout_editor_absoluteY="0dp"
-            tools:ignore="MissingConstraints" />
+            tools:layout_editor_absoluteY="0dp" />
 
         <TextView
             android:id="@+id/textView2"

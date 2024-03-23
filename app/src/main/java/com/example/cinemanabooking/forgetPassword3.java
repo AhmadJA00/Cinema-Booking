@@ -20,11 +20,12 @@ public class forgetPassword3 extends AppCompatActivity {
         setContentView(R.layout.activity_forget_password3);
     }
 
-    public void FPpage1(View v){
-        Intent i= new Intent(this, ForgetPassword1.class);
+    public void FPpage1(View v) {
+        Intent i = new Intent(this, ForgetPassword1.class);
         startActivity(i);
     }
-    public void checkNewPassword(View view){
+
+    public void checkNewPassword(View view) {
         TextView res = (TextView) findViewById(R.id.resultConfirmPass);
         EditText password = findViewById(R.id.newPassword);
         EditText cPassword = findViewById(R.id.NewPasswordConfirm);
@@ -50,4 +51,4 @@ public class forgetPassword3 extends AppCompatActivity {
         }
     }
 
-    }
+}

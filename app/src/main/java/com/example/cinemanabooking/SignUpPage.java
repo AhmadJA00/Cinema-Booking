@@ -14,26 +14,24 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.cinemanabooking.Services.Account.RegisterTask;
 import com.example.cinemanabooking.Services.ApiResponse;
+import com.example.cinemanabooking.Services.RequestServices.PostServices;
+
+import org.json.JSONObject;
 
 import java.util.Calendar;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class SignUpPage extends AppCompatActivity implements RegisterTask.RegisterListener {
-
-
-
-    private final  static String UrlRegister="api/Account/Register";
+public class SignUpPage extends AppCompatActivity implements PostServices.PostListener {
+    private final static String UrlRegister = "api/Account/Register";
     Button DOB;
-
-    TextView res ;
+    TextView res;
     EditText fName;
-    EditText lName ;
-    EditText userEmail ;
-    EditText password ;
-    EditText cPassword ;
+    EditText lName;
+    EditText userEmail;
+    EditText password;
+    EditText cPassword;
     Button btn_sing_up;
 
     @Override
@@ -42,14 +40,14 @@ public class SignUpPage extends AppCompatActivity implements RegisterTask.Regist
         setContentView(R.layout.activity_sign_up_page);
         DOB = findViewById(R.id.DOB);
 
-         res = findViewById(R.id.result);
-         fName = findViewById(R.id.fname);
-         lName = findViewById(R.id.lName);
-         userEmail = findViewById(R.id.email_sing_up);
-         password = findViewById(R.id.signPassword);
-         cPassword = findViewById(R.id.signPasswordConfirm);
-         btn_sing_up = (Button) findViewById(R.id.sing_up_button);
-         btn_sing_up.setOnClickListener(this::signUp);
+        res = findViewById(R.id.result);
+        fName = findViewById(R.id.fname);
+        lName = findViewById(R.id.lName);
+        userEmail = findViewById(R.id.email_sing_up);
+        password = findViewById(R.id.signPassword);
+        cPassword = findViewById(R.id.signPasswordConfirm);
+        btn_sing_up = (Button) findViewById(R.id.sing_up_button);
+        btn_sing_up.setOnClickListener(this::signUp);
     }
 
 
@@ -59,16 +57,14 @@ public class SignUpPage extends AppCompatActivity implements RegisterTask.Regist
     }
 
 
+    private static final Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 
-    private static final Pattern VALID_EMAIL_ADDRESS_REGEX =
-            Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
     private static boolean validateemail(String emailStr) {
         Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(emailStr);
         return matcher.matches();
     }
 
     public void signUp(View view) {
-
 
 
         String f_name = fName.getText().toString();
@@ -79,20 +75,35 @@ public class SignUpPage extends AppCompatActivity implements RegisterTask.Regist
         String cPass = cPassword.getText().toString();
 
         if (!f_name.equals("") && !l_name.equals("") && !DOB_o.equals("") && !email.equals("") && !pass.equals("") && !cPass.equals("")) {
-            if (!pass.equals(cPass) && pass.length()>=6) {
+            if (!pass.equals(cPass) && pass.length() >= 6) {
                 res.setText("Opsss, Your confrim Password must be the same as Password, or Password length minimum 6 characters");
                 res.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.hint_text)));
                 res.setVisibility(View.VISIBLE);
 
             } else {
 
-                if (validateemail(email)){
+                if (validateemail(email)) {
                     res.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.grayText)));
                     res.setText("You have been reqister");
                     res.setVisibility(View.VISIBLE);
-                    new RegisterTask(this).execute(UrlRegister,f_name,l_name,DOB_o,email,pass,cPass);
-                }
-                else {
+                    try {
+                        JSONObject postData = new JSONObject();
+                        postData.put("firstName", f_name);
+                        postData.put("lastName", l_name);
+                        postData.put("dateOfBirthDay", DOB_o);
+                        postData.put("email", email);
+                        postData.put("password", pass);
+                        postData.put("confirmPassword", cPass);
+                        postData.put("acceptTerms", true);
+                        new PostServices(this).execute(UrlRegister, postData.toString());
+
+                    }catch (Exception e){
+                        Toast.makeText(this, "Error In pares to json", Toast.LENGTH_LONG).show();
+                    }
+
+
+
+                } else {
                     res.setText("Opsss, Your email Is Incorect.");
                     res.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.hint_text)));
                     res.setVisibility(View.VISIBLE);
@@ -117,18 +128,16 @@ public class SignUpPage extends AppCompatActivity implements RegisterTask.Regist
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 String StrMonthe;
                 String StrDay;
-                if ((month + 1)<10){
-                StrMonthe=("0"+(month + 1));
-                }
-                else {
-                    StrMonthe=(""+(month + 1));
+                if ((month + 1) < 10) {
+                    StrMonthe = ("0" + (month + 1));
+                } else {
+                    StrMonthe = ("" + (month + 1));
                 }
 
-                if ((dayOfMonth)<10){
-                    StrDay=("0"+(dayOfMonth));
-                }
-                else {
-                    StrDay=(""+(dayOfMonth));
+                if ((dayOfMonth) < 10) {
+                    StrDay = ("0" + (dayOfMonth));
+                } else {
+                    StrDay = ("" + (dayOfMonth));
                 }
 
                 DOB.setText(String.valueOf(year) + "-" + String.valueOf(StrMonthe) + "-" + String.valueOf(StrDay));
@@ -136,14 +145,25 @@ public class SignUpPage extends AppCompatActivity implements RegisterTask.Regist
         }, year, month, day);
         dateDialog.show();
     }
+
     @Override
-    public void onRegisterSuccess(ApiResponse response) {
-        Toast.makeText(this,(String)response.Result,Toast.LENGTH_LONG).show();
+    public void onPostSuccess(ApiResponse response) {
+
+        String strMessage ="";
+        try {
+            JSONObject JsonResponse = new JSONObject(response.Result.toString());
+            strMessage = JsonResponse.getString("result");
+        }
+        catch (Exception e){
+            Toast.makeText(this,"Error Find Message Successfully.", Toast.LENGTH_LONG).show();
+        }
+
+        Toast.makeText(this, strMessage, Toast.LENGTH_LONG).show();
     }
 
     @Override
-    public void onRegisterFailure(ApiResponse response) {
-        Toast.makeText(this,response.ErrorMessage.get(0),Toast.LENGTH_LONG).show();
+    public void onPostFailure(ApiResponse response) {
+        Toast.makeText(this, response.ErrorMessage.get(0), Toast.LENGTH_LONG).show();
     }
 }
 
