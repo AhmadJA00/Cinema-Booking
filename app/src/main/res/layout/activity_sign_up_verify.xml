@@ -52,7 +52,8 @@
             android:background="@drawable/custome_button"
             android:text="Verify"
             android:textColor="@color/white"
-            android:textSize="20dp"/>
+            android:textSize="20dp"
+            android:onClick="verifyEmailCodePage"/>
 
     </LinearLayout>
 
