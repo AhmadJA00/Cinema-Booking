@@ -115,6 +115,9 @@ public class SignUpPage extends AppCompatActivity implements PostServices.PostLi
             res.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.hint_text)));
             res.setVisibility(View.VISIBLE);
         }
+
+        Intent i = new Intent(this , SignUpVerify.class);
+        startActivity(i);
     }
 
     public void datePicker(View view) {

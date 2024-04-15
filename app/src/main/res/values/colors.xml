@@ -5,7 +5,7 @@
     <color name="trans">#00FFFFFF</color>
     <color name="main">#981219</color>
     <color name="hint_text">#B3981219</color>
-    <color name="mainDarker">#7A161B</color>
+    <color name="mainDarker">#79140e</color>
     <color name="gray">#D9D9D9</color>
     <color name="grayText">#404040</color>
 </resources>

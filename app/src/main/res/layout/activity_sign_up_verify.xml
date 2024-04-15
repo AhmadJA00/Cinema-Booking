@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignUpVerify">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/verifyEmailImage"
+            android:layout_width="420dp"
+            android:layout_height="280dp"
+            app:srcCompat="@drawable/imagefp" />
+
+        <TextView
+            android:id="@+id/VEtext"
+            android:layout_width="300dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="112dp"
+            android:text="Verify Your Email"
+            android:textAlignment="center"
+            android:textColor="@color/main"
+            android:textSize="34sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/VEtext2"
+            android:layout_width="345dp"
+            android:layout_height="wrap_content"
+            android:text="Thanks for Sing Up with us. Click on the button below to verify your email address"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:layout_marginTop="10dp"/>
+
+        <Button
+            android:id="@+id/buttonVerify"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="52dp"
+            android:background="@drawable/custome_button"
+            android:text="Verify"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:onClick="verifyEmailCodePage"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
