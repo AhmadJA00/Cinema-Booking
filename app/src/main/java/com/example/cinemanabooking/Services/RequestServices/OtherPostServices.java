@@ -30,6 +30,7 @@ public class OtherPostServices extends AsyncTask<String, Void, ApiResponse> {
         String Url = params[0];
         String JsonPost = params[1];
 
+
         try {
             URL url = new URL(Helper.BaseUrl + Url);
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();

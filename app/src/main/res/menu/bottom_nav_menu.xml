@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/home_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="" />
+
+    <item
+        android:id="@+id/search"
+        android:icon="@drawable/search_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="" />
+
+    <item
+        android:id="@+id/movies"
+        android:icon="@drawable/moviesicon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="" />
+
+    <item
+        android:id="@+id/ticket"
+        android:icon="@drawable/ticketicon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="" />
+
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/profileicon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="" />
+</menu>
