@@ -20,12 +20,9 @@ import com.example.cinemanabooking.Services.RequestServices.PostServices;
 
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.text.SimpleDateFormat;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -42,15 +39,23 @@ public class MainActivity extends AppCompatActivity implements PostServices.Post
     private CheckBox CheckRemember;
     private EditText userEmail;
     private EditText password;
+    private TextView labSignUp;
+    private TextView labForgotPasssword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        btnLogin = (Button) findViewById(R.id.btLogin);
+        btnLogin = (Button) findViewById(R.id.btnLogin);
         CheckRemember = findViewById(R.id.checkBox);
+        CheckRemember.setOnClickListener(this::setCheck);
         userEmail = findViewById(R.id.email_sing_up);
         password = findViewById(R.id.loginPassword);
+        labForgotPasssword=(TextView) findViewById(R.id.labForgotPassword);
+        labSignUp=(TextView) findViewById(R.id.labSignUp);
+        labSignUp.setOnClickListener(this::signUpPage);
+        labForgotPasssword.setOnClickListener(this::FPpage);
+        btnLogin.setOnClickListener(this::logIn);
         loadRemember();
     }
 
