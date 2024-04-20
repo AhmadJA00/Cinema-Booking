@@ -73,7 +73,7 @@ public class ForgetPassword1 extends AppCompatActivity implements PostServices.P
 
         Toast.makeText(this, StrMessage, Toast.LENGTH_LONG).show();
         Intent i = new Intent(this, forgetPassword2.class);
-        i.putExtra("Email", Vemail.getText().toString());
+        i.putExtra("Email", txtEmail.getText().toString());
         startActivity(i);
     }
 

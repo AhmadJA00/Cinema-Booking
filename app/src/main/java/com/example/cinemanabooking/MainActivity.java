@@ -30,7 +30,6 @@ import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity implements PostServices.PostListener {
     private Button btnLogin;
-    private  File _file = null;
     private FileInputStream _fileReader = null;
     private  FileOutputStream _fileWriter = null;
     private LoginResponseDto _LoginResponse;

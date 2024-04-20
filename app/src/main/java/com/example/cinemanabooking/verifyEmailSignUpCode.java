@@ -3,6 +3,7 @@ package com.example.cinemanabooking;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -41,9 +42,9 @@ public class verifyEmailSignUpCode extends AppCompatActivity implements PostServ
         btnVerify = (Button) findViewById(R.id.btnVerify);
         btnVerify.setOnClickListener(this::verifyEmail);
         emailTV = (TextView) findViewById(R.id.getEmailTextView);
-//        Intent i = getIntent();
-//        String email = i.getStringExtra("Email");
-//       emailTV.setText(email);
+        Intent thisIntent = getIntent();
+        String email = thisIntent.getStringExtra("email");
+        emailTV.setText(email);
 
 
         verifyCode1.addTextChangedListener(new TextWatcher() {
@@ -137,7 +138,7 @@ public class verifyEmailSignUpCode extends AppCompatActivity implements PostServ
         Dialog popupDialog = new Dialog(this);
         popupDialog.setContentView(R.layout.verify_pop_up);
         popupDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        Toast.makeText(this, response.toString(),Toast.LENGTH_LONG).show();
+        Toast.makeText(this, response.toString(), Toast.LENGTH_LONG).show();
     }
 
     @Override

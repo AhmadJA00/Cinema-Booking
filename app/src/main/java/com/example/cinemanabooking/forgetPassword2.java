@@ -43,7 +43,7 @@ public class forgetPassword2 extends AppCompatActivity implements PostServices.P
         emailTV = (TextView) findViewById(R.id.getEmailTextView);
         labChangeEmail = (TextView) findViewById(R.id.labChangeEmail);
         labChangeEmail.setOnClickListener(this::forgetPassworPage1);
-        labResendCode = (TextView) findViewById(R.id.labReSendCode);
+        labResendCode = (TextView) findViewById(R.id.labLoginPage);
         labResendCode.setOnClickListener(this::ResendCode);
         btnVerify = (Button) findViewById(R.id.btnVerify);
         btnVerify.setOnClickListener(this::forGotpasswordPage3);

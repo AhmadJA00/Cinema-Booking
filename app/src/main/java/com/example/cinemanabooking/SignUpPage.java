@@ -33,12 +33,14 @@ public class SignUpPage extends AppCompatActivity implements PostServices.PostLi
     private EditText password;
     private EditText cPassword;
     private Button btn_sing_up;
+    private TextView labLoginPage;
+    private Button dateTimePicker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_page);
-        DOB = findViewById(R.id.DOB);
+        DOB = findViewById(R.id.btnDateTimePicker);
 
         res = findViewById(R.id.result);
         fName = findViewById(R.id.fname);
@@ -48,6 +50,12 @@ public class SignUpPage extends AppCompatActivity implements PostServices.PostLi
         cPassword = findViewById(R.id.signPasswordConfirm);
         btn_sing_up = (Button) findViewById(R.id.sing_up_button);
         btn_sing_up.setOnClickListener(this::signUp);
+
+        labLoginPage = (TextView) findViewById(R.id.labLoginPage);
+        labLoginPage.setOnClickListener(this::loginPage);
+        dateTimePicker = (Button) findViewById(R.id.btnDateTimePicker);
+        dateTimePicker.setOnClickListener(this::datePicker);
+
     }
 
 
@@ -96,10 +104,9 @@ public class SignUpPage extends AppCompatActivity implements PostServices.PostLi
                         postData.put("confirmPassword", cPass);
                         postData.put("acceptTerms", true);
                         new PostServices(this).execute(UrlRegister, postData.toString());
-                    }catch (Exception e){
+                    } catch (Exception e) {
                         Toast.makeText(this, "Error In pares to json", Toast.LENGTH_LONG).show();
                     }
-
 
 
                 } else {
@@ -150,10 +157,10 @@ public class SignUpPage extends AppCompatActivity implements PostServices.PostLi
     @Override
     public void onPostSuccess(ApiResponse response) {
 
-        Toast.makeText(this,"Error Find Message Successfully.", Toast.LENGTH_LONG).show();
-        Intent VerifyPage = new Intent(this , verifyEmailSignUpCode.class);
+        Toast.makeText(this, "Error Find Message Successfully.", Toast.LENGTH_LONG).show();
+        Intent VerifyPage = new Intent(this, verifyEmailSignUpCode.class);
         String email = userEmail.getText().toString();
-        VerifyPage.putExtra("Email",email);
+        VerifyPage.putExtra("email", email);
         startActivity(VerifyPage);
         Toast.makeText(this, response.toString(), Toast.LENGTH_LONG).show();
     }
