@@ -2,8 +2,10 @@ package com.example.cinemanabooking.Services.RequestServices;
 
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.cinemanabooking.Hellper.Helper;
+import com.example.cinemanabooking.MainActivity;
 import com.example.cinemanabooking.Services.ApiResponse;
 
 import org.json.JSONArray;
@@ -82,8 +84,7 @@ public class PostServices  extends AsyncTask<String, Void, ApiResponse> {
             return _apiResponse;
 
         } catch (Exception e) {
-            Log.e("Login Request", "  Error:   " + e.getMessage());
-            return null;
+            return _apiResponse;
         }
     }
     @Override
