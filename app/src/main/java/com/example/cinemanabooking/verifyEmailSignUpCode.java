@@ -3,7 +3,6 @@ package com.example.cinemanabooking;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -16,7 +15,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.cinemanabooking.Services.ApiResponse;
-import com.example.cinemanabooking.Services.RequestServices.OtherPostServices;
 import com.example.cinemanabooking.Services.RequestServices.PostServices;
 
 import org.json.JSONObject;
@@ -40,7 +38,7 @@ public class verifyEmailSignUpCode extends AppCompatActivity implements PostServ
         verifyCode3 = (EditText) findViewById(R.id.verifyCode3);
         verifyCode4 = (EditText) findViewById(R.id.verifyCode4);
 
-        btnVerify = (Button) findViewById(R.id.button3);
+        btnVerify = (Button) findViewById(R.id.btnVerify);
         btnVerify.setOnClickListener(this::verifyEmail);
         emailTV = (TextView) findViewById(R.id.getEmailTextView);
 //        Intent i = getIntent();

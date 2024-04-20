@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,14 +18,18 @@ import com.example.cinemanabooking.Services.RequestServices.PostServices;
 
 import org.json.JSONObject;
 
-public class forgetPassword2 extends AppCompatActivity implements PostServices.PostListener , OtherPostServices.otherPostListener {
+public class forgetPassword2 extends AppCompatActivity implements PostServices.PostListener, OtherPostServices.otherPostListener {
 
     private EditText verifyCode1;
     private EditText verifyCode2;
     private EditText verifyCode3;
     private EditText verifyCode4;
 
-    private  TextView emailTV;
+    private TextView emailTV;
+    private TextView labChangeEmail;
+    private TextView labResendCode;
+
+    private Button btnVerify;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +41,15 @@ public class forgetPassword2 extends AppCompatActivity implements PostServices.P
         verifyCode3 = (EditText) findViewById(R.id.verifyCode3);
         verifyCode4 = (EditText) findViewById(R.id.verifyCode4);
         emailTV = (TextView) findViewById(R.id.getEmailTextView);
+        labChangeEmail = (TextView) findViewById(R.id.labChangeEmail);
+        labChangeEmail.setOnClickListener(this::forgetPassworPage1);
+        labResendCode = (TextView) findViewById(R.id.labReSendCode);
+        labResendCode.setOnClickListener(this::ResendCode);
+        btnVerify = (Button) findViewById(R.id.btnVerify);
+        btnVerify.setOnClickListener(this::forGotpasswordPage3);
+
+
+
         Intent i = getIntent();
         String email = i.getStringExtra("Email");
         emailTV.setText(email);
@@ -113,16 +127,15 @@ public class forgetPassword2 extends AppCompatActivity implements PostServices.P
 
     }
 
-    private void FPpage3(View v) {
+    private void forGotpasswordPage3(View v) {
         String Url = "api/Account/Validate-Reset-Token";
-        String strToken = ""+ verifyCode1.getText()+ verifyCode2.getText()+
+        String strToken = "" + verifyCode1.getText() + verifyCode2.getText() +
                 verifyCode3.getText() + verifyCode4.getText();
         try {
             JSONObject postData = new JSONObject();
             postData.put("token", strToken);
             new PostServices(this).execute(Url, postData.toString());
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             Toast.makeText(this, "Error In pares Json", Toast.LENGTH_LONG).show();
         }
     }
@@ -134,8 +147,7 @@ public class forgetPassword2 extends AppCompatActivity implements PostServices.P
             JSONObject postData = new JSONObject();
             postData.put("email", strEmail);
             new OtherPostServices(this).execute(Url, postData.toString());
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             Toast.makeText(this, "Error In pares Json", Toast.LENGTH_LONG).show();
         }
     }
@@ -154,12 +166,11 @@ public class forgetPassword2 extends AppCompatActivity implements PostServices.P
     @Override
     public void onOtherPostSuccess(ApiResponse response) {
 
-        String StrMessage="";
+        String StrMessage = "";
         try {
             JSONObject JsonResponse = new JSONObject(response.Result.toString());
             StrMessage = JsonResponse.getString("result");
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
         }
         Toast.makeText(this, StrMessage, Toast.LENGTH_LONG).show();
@@ -170,7 +181,7 @@ public class forgetPassword2 extends AppCompatActivity implements PostServices.P
         Toast.makeText(this, response.ErrorMessage.get(0), Toast.LENGTH_LONG).show();
     }
 
-    private void FPpage1(View v) {
+    private void forgetPassworPage1(View v) {
         Intent i = new Intent(this, ForgetPassword1.class);
         startActivity(i);
     }
