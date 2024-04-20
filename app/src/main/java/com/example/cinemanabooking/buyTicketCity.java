@@ -12,9 +12,13 @@ public class buyTicketCity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buy_ticket_city);
 
+        //to fill first progress bar
         ProgressBar cityProgressBar = findViewById(R.id.cityProgressBar);
-
         cityProgressBar.setProgress(100);
+
+         //to start on ticket
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavbar);
+        bottomNavigationView.setSelectedItemId(R.id.ticket);
 
     }
 }
