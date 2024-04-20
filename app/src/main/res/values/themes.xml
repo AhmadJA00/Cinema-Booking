@@ -6,4 +6,10 @@
     </style>
 
     <style name="Theme.CinemanaBooking" parent="Base.Theme.CinemanaBooking" />
+
+    <!--defining the color of the active navbar icon-->
+    <style name="App.Custom.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/main</item>
+    </style>
+
 </resources>
