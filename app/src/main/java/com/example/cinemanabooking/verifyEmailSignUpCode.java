@@ -16,38 +16,41 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.cinemanabooking.Services.ApiResponse;
+import com.example.cinemanabooking.Services.RequestServices.OtherPostServices;
 import com.example.cinemanabooking.Services.RequestServices.PostServices;
 
 import org.json.JSONObject;
 
-public class verifyEmailSignUpCode extends AppCompatActivity implements PostServices.PostListener {
-    private EditText verifyCode1;
-    private EditText verifyCode2;
-    private EditText verifyCode3;
-    private EditText verifyCode4;
-    private TextView emailTV;
+public class verifyEmailSignUpCode extends AppCompatActivity implements PostServices.PostListener , OtherPostServices.otherPostListener {
+    private EditText txtVerifyCode1;
+    private EditText txtVerifyCode2;
+    private EditText txtVerifyCode3;
+    private EditText txtVerifyCode4;
+    private TextView txtEmail;
     private Button btnVerify;
+
+    private TextView labResendCodeVerify;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verify_email_sign_up_code);
-
-        verifyCode1 = (EditText) findViewById(R.id.verifyCode1);
-        verifyCode2 = (EditText) findViewById(R.id.verifyCode2);
-        verifyCode3 = (EditText) findViewById(R.id.verifyCode3);
-        verifyCode4 = (EditText) findViewById(R.id.verifyCode4);
-
+        txtVerifyCode1 = (EditText) findViewById(R.id.txtVerifyCode1);
+        txtVerifyCode2 = (EditText) findViewById(R.id.txtVerifyCode2);
+        txtVerifyCode3 = (EditText) findViewById(R.id.txtVerifyCode3);
+        txtVerifyCode4 = (EditText) findViewById(R.id.txtVerifyCode4);
+        labResendCodeVerify = (TextView) findViewById(R.id.labResendCodeVerify);
+        labResendCodeVerify.setOnClickListener(this::ResendCode);
         btnVerify = (Button) findViewById(R.id.btnVerify);
         btnVerify.setOnClickListener(this::verifyEmail);
-        emailTV = (TextView) findViewById(R.id.getEmailTextView);
+        txtEmail = (TextView) findViewById(R.id.getEmailTextView);
         Intent thisIntent = getIntent();
         String email = thisIntent.getStringExtra("email");
-        emailTV.setText(email);
+        txtEmail.setText(email);
 
 
-        verifyCode1.addTextChangedListener(new TextWatcher() {
+        txtVerifyCode1.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -56,7 +59,7 @@ public class verifyEmailSignUpCode extends AppCompatActivity implements PostServ
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (s.length() == 1) {
-                    verifyCode2.requestFocus();
+                    txtVerifyCode2.requestFocus();
                 }
             }
 
@@ -65,7 +68,7 @@ public class verifyEmailSignUpCode extends AppCompatActivity implements PostServ
 
             }
         });
-        verifyCode2.addTextChangedListener(new TextWatcher() {
+        txtVerifyCode2.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -74,7 +77,7 @@ public class verifyEmailSignUpCode extends AppCompatActivity implements PostServ
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (s.length() == 1) {
-                    verifyCode3.requestFocus();
+                    txtVerifyCode3.requestFocus();
                 }
             }
 
@@ -83,7 +86,7 @@ public class verifyEmailSignUpCode extends AppCompatActivity implements PostServ
 
             }
         });
-        verifyCode3.addTextChangedListener(new TextWatcher() {
+        txtVerifyCode3.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -92,7 +95,7 @@ public class verifyEmailSignUpCode extends AppCompatActivity implements PostServ
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (s.length() == 1) {
-                    verifyCode4.requestFocus();
+                    txtVerifyCode4.requestFocus();
                 }
             }
 
@@ -101,7 +104,7 @@ public class verifyEmailSignUpCode extends AppCompatActivity implements PostServ
 
             }
         });
-        verifyCode4.addTextChangedListener(new TextWatcher() {
+        txtVerifyCode4.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -118,27 +121,18 @@ public class verifyEmailSignUpCode extends AppCompatActivity implements PostServ
             }
         });
 
-    }
-
-    private void FPpage3(View v) {
-        String Url = "api/Account/Validate-Reset-Token";
-        String strToken = "" + verifyCode1.getText() + verifyCode2.getText() +
-                verifyCode3.getText() + verifyCode4.getText();
-        try {
-            JSONObject postData = new JSONObject();
-            postData.put("token", strToken);
-            new PostServices(this).execute(Url, postData.toString());
-        } catch (Exception e) {
-            Toast.makeText(this, "Error In pares Json", Toast.LENGTH_LONG).show();
-        }
     }
 
     @Override
     public void onPostSuccess(ApiResponse response) {
-        Dialog popupDialog = new Dialog(this);
-        popupDialog.setContentView(R.layout.verify_pop_up);
-        popupDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        Toast.makeText(this, response.toString(), Toast.LENGTH_LONG).show();
+        String StrMessage = "";
+        try {
+            JSONObject JsonResponse = new JSONObject(response.Result.toString());
+            StrMessage = JsonResponse.getString("result");
+        } catch (Exception e) {
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
+        }
+        Toast.makeText(this, StrMessage, Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -149,15 +143,15 @@ public class verifyEmailSignUpCode extends AppCompatActivity implements PostServ
     private void verifyEmail(View v) {
 
         String verifyCode;
-        if (verifyCode1.getText() != null && verifyCode2.getText() != null && verifyCode3.getText() != null && verifyCode4.getText() != null) {
+        if (txtVerifyCode1.getText() != null && txtVerifyCode2.getText() != null && txtVerifyCode3.getText() != null && txtVerifyCode4.getText() != null) {
 
-            verifyCode = String.valueOf(verifyCode1.getText().toString().charAt(0) +
-                    verifyCode2.getText().toString().charAt(0) +
-                    verifyCode3.getText().toString().charAt(0) +
-                    verifyCode4.getText().toString().charAt(0));
+            verifyCode = (txtVerifyCode1.getText().toString() +
+                    txtVerifyCode2.getText().toString() +
+                    txtVerifyCode3.getText().toString() +
+                    txtVerifyCode4.getText().toString())+"";
 
             try {
-                String url = "/api/Account/Verify-Email";
+                String url = "api/Account/Verify-Email";
                 JSONObject postData = new JSONObject();
                 postData.put("token", verifyCode);
                 new PostServices(this).execute(url, postData.toString());
@@ -169,4 +163,32 @@ public class verifyEmailSignUpCode extends AppCompatActivity implements PostServ
         }
     }
 
+    private void ResendCode(View v) {
+        String Url = "api/Account/Resend-Code-Verify";
+        String strEmail = (String) txtEmail.getText();
+        try {
+            JSONObject postData = new JSONObject();
+            postData.put("email", strEmail);
+            new OtherPostServices(this).execute(Url, postData.toString());
+        } catch (Exception e) {
+            Toast.makeText(this, "Error In pares Json", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    @Override
+    public void onOtherPostSuccess(ApiResponse response) {
+        String StrMessage = "";
+        try {
+            JSONObject JsonResponse = new JSONObject(response.Result.toString());
+            StrMessage = JsonResponse.getString("result");
+        } catch (Exception e) {
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
+        }
+        Toast.makeText(this, StrMessage, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onOtherPostFailure(ApiResponse response) {
+        Toast.makeText(this, response.ErrorMessage.get(0), Toast.LENGTH_LONG).show();
+    }
 }

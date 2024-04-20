@@ -50,7 +50,6 @@ public class SignUpPage extends AppCompatActivity implements PostServices.PostLi
         cPassword = findViewById(R.id.signPasswordConfirm);
         btn_sing_up = (Button) findViewById(R.id.sing_up_button);
         btn_sing_up.setOnClickListener(this::signUp);
-
         labLoginPage = (TextView) findViewById(R.id.labLoginPage);
         labLoginPage.setOnClickListener(this::loginPage);
         dateTimePicker = (Button) findViewById(R.id.btnDateTimePicker);
@@ -157,12 +156,19 @@ public class SignUpPage extends AppCompatActivity implements PostServices.PostLi
     @Override
     public void onPostSuccess(ApiResponse response) {
 
-        Toast.makeText(this, "Error Find Message Successfully.", Toast.LENGTH_LONG).show();
+        String StrMessage = "";
+        try {
+            JSONObject JsonResponse = new JSONObject(response.Result.toString());
+            StrMessage = JsonResponse.getString("result");
+        } catch (Exception e) {
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
+        }
+
         Intent VerifyPage = new Intent(this, verifyEmailSignUpCode.class);
         String email = userEmail.getText().toString();
         VerifyPage.putExtra("email", email);
         startActivity(VerifyPage);
-        Toast.makeText(this, response.toString(), Toast.LENGTH_LONG).show();
+        Toast.makeText(this, StrMessage, Toast.LENGTH_LONG).show();
     }
 
     @Override

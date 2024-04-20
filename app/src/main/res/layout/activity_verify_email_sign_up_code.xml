@@ -84,7 +84,7 @@
 
 
         <EditText
-            android:id="@+id/verifyCode1"
+            android:id="@+id/txtVerifyCode1"
             android:layout_width="70dp"
             android:layout_height="52dp"
             android:layout_weight="1"
@@ -98,7 +98,7 @@
             android:layout_marginEnd="16dp"/>
 
         <EditText
-            android:id="@+id/verifyCode2"
+            android:id="@+id/txtVerifyCode2"
             android:layout_width="70dp"
             android:layout_height="52dp"
             android:layout_weight="1"
@@ -112,7 +112,7 @@
             android:layout_marginEnd="16dp"/>
 
         <EditText
-            android:id="@+id/verifyCode3"
+            android:id="@+id/txtVerifyCode3"
             android:layout_width="70dp"
             android:layout_height="52dp"
             android:layout_weight="1"
@@ -126,7 +126,7 @@
             android:layout_marginEnd="16dp"/>
 
         <EditText
-            android:id="@+id/verifyCode4"
+            android:id="@+id/txtVerifyCode4"
             android:layout_width="70dp"
             android:layout_height="52dp"
             android:layout_weight="1"
@@ -164,11 +164,10 @@
             app:layout_constraintVertical_bias="1.0" />
 
         <TextView
-            android:id="@+id/labLoginPage"
+            android:id="@+id/labResendCodeVerify"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:onClick="ResendCode"
             android:text="Resend Code"
             android:textColor="@color/main"
             android:textSize="16dp"
