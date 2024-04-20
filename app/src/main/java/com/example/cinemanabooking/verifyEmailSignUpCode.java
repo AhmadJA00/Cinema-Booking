@@ -22,18 +22,18 @@ import com.example.cinemanabooking.Services.RequestServices.PostServices;
 import org.json.JSONObject;
 
 public class verifyEmailSignUpCode extends AppCompatActivity implements PostServices.PostListener {
-    EditText verifyCode1;
-    EditText verifyCode2;
-    EditText verifyCode3;
-    EditText verifyCode4;
-    TextView emailTV;
-    Button btnVerify;
+    private EditText verifyCode1;
+    private EditText verifyCode2;
+    private EditText verifyCode3;
+    private EditText verifyCode4;
+    private TextView emailTV;
+    private Button btnVerify;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_forget_password2);
+        setContentView(R.layout.activity_verify_email_sign_up_code);
 
         verifyCode1 = (EditText) findViewById(R.id.verifyCode1);
         verifyCode2 = (EditText) findViewById(R.id.verifyCode2);

@@ -19,12 +19,12 @@ import org.json.JSONObject;
 
 public class forgetPassword2 extends AppCompatActivity implements PostServices.PostListener , OtherPostServices.otherPostListener {
 
-    EditText verifyCode1;
-    EditText verifyCode2;
-    EditText verifyCode3;
-    EditText verifyCode4;
+    private EditText verifyCode1;
+    private EditText verifyCode2;
+    private EditText verifyCode3;
+    private EditText verifyCode4;
 
-    TextView emailTV;
+    private  TextView emailTV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,7 +113,7 @@ public class forgetPassword2 extends AppCompatActivity implements PostServices.P
 
     }
 
-    public void FPpage3(View v) {
+    private void FPpage3(View v) {
         String Url = "api/Account/Validate-Reset-Token";
         String strToken = ""+ verifyCode1.getText()+ verifyCode2.getText()+
                 verifyCode3.getText() + verifyCode4.getText();
@@ -127,7 +127,7 @@ public class forgetPassword2 extends AppCompatActivity implements PostServices.P
         }
     }
 
-    public void ResendCode(View v) {
+    private void ResendCode(View v) {
         String Url = "api/Account/Resend-Code-Reset";
         String strEmail = (String) emailTV.getText();
         try {
@@ -170,7 +170,7 @@ public class forgetPassword2 extends AppCompatActivity implements PostServices.P
         Toast.makeText(this, response.ErrorMessage.get(0), Toast.LENGTH_LONG).show();
     }
 
-    public void FPpage1(View v) {
+    private void FPpage1(View v) {
         Intent i = new Intent(this, ForgetPassword1.class);
         startActivity(i);
     }

@@ -34,7 +34,7 @@ public class ForgetPassword1 extends AppCompatActivity implements PostServices.P
         return matcher.matches();
     }
 
-    public void forgetPass2(View v) {
+    private void forgetPass2(View v) {
 
         String strEmail = Vemail.getText().toString();
         if (validateemail(strEmail)) {

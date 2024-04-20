@@ -33,15 +33,15 @@ import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity implements PostServices.PostListener {
     private Button btnLogin;
-    File _file = null;
-    FileInputStream _fileReader = null;
-    FileOutputStream _fileWriter = null;
+    private  File _file = null;
+    private FileInputStream _fileReader = null;
+    private  FileOutputStream _fileWriter = null;
     private LoginResponseDto _LoginResponse;
     private static final String loginUrl = "api/Account/Login";
 
-    CheckBox CheckRemember;
-    EditText userEmail;
-    EditText password;
+    private CheckBox CheckRemember;
+    private EditText userEmail;
+    private EditText password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,12 +54,12 @@ public class MainActivity extends AppCompatActivity implements PostServices.Post
         loadRemember();
     }
 
-    public void signUpPage(View v) {
+    private void signUpPage(View v) {
         Intent i = new Intent(this, SignUpPage.class);
         startActivity(i);
     }
 
-    public void FPpage(View v) {
+    private void FPpage(View v) {
         Intent i = new Intent(this, ForgetPassword1.class);
         startActivity(i);
     }
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements PostServices.Post
         return matcher.matches();
     }
 
-    public void logIn(View view) {
+    private void logIn(View view) {
 
         TextView res = findViewById(R.id.result_login);
         String email = userEmail.getText().toString();
@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements PostServices.Post
         }
     }
 
-    public void setCheck(View view) {
+    private void setCheck(View view) {
 
         if (CheckRemember.isChecked()) {
             CheckRemember.setButtonTintList(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.main)));

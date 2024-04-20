@@ -16,7 +16,7 @@ public class SignUpVerify extends AppCompatActivity {
         Button buttonVerify= findViewById(R.id.buttonVerify);
     }
 
-    public void verifyEmailCodePage(View v){
+    private void verifyEmailCodePage(View v){
         Intent i = new Intent(this , verifyEmailSignUpCode.class);
         startActivity(i);
     }
