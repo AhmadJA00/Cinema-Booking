@@ -1,5 +1,5 @@
 package com.example.cinemanabooking.Hellper;
 
 public class Helper {
-    public static final String BaseUrl = "http://192.168.174.87:5000/";
+    public static final String BaseUrl = "http://172.20.10.2:5000/";
 }

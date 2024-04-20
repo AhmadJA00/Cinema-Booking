@@ -96,7 +96,9 @@ public class SignUpPage extends AppCompatActivity implements PostServices.PostLi
                         postData.put("confirmPassword", cPass);
                         postData.put("acceptTerms", true);
                         new PostServices(this).execute(UrlRegister, postData.toString());
-
+                        Intent i = new Intent(this , verifyEmailSignUpCode.class);
+//                        i.getStringExtra("email",email);
+                        startActivity(i);
                     }catch (Exception e){
                         Toast.makeText(this, "Error In pares to json", Toast.LENGTH_LONG).show();
                     }
@@ -116,8 +118,7 @@ public class SignUpPage extends AppCompatActivity implements PostServices.PostLi
             res.setVisibility(View.VISIBLE);
         }
 
-        Intent i = new Intent(this , SignUpVerify.class);
-        startActivity(i);
+
     }
 
     public void datePicker(View view) {
