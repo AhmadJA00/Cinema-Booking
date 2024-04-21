@@ -24,11 +24,9 @@ public class forgetPassword2 extends AppCompatActivity implements PostServices.P
     private EditText verifyCode2;
     private EditText verifyCode3;
     private EditText verifyCode4;
-
     private TextView emailTV;
     private TextView labChangeEmail;
     private TextView labResendCode;
-
     private Button btnVerify;
 
     @Override
@@ -47,8 +45,6 @@ public class forgetPassword2 extends AppCompatActivity implements PostServices.P
         labResendCode.setOnClickListener(this::ResendCode);
         btnVerify = (Button) findViewById(R.id.btnVerify);
         btnVerify.setOnClickListener(this::forGotpasswordPage3);
-
-
 
         Intent i = getIntent();
         String email = i.getStringExtra("Email");
@@ -155,6 +151,9 @@ public class forgetPassword2 extends AppCompatActivity implements PostServices.P
     @Override
     public void onPostSuccess(ApiResponse response) {
         Intent i = new Intent(this, forgetPassword3.class);
+        String strToken = "" + verifyCode1.getText() + verifyCode2.getText() +
+                verifyCode3.getText() + verifyCode4.getText();
+        i.putExtra("token",strToken);
         startActivity(i);
     }
 
