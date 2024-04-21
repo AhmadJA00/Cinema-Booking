@@ -78,7 +78,6 @@ public class MainActivity extends AppCompatActivity implements PostServices.Post
 
     private void logIn(View view) {
 
-        TextView res = findViewById(R.id.result_login);
         String email = userEmail.getText().toString();
         String pass = password.getText().toString();
         if (!email.equals("") && !pass.equals("")) {
@@ -94,15 +93,13 @@ public class MainActivity extends AppCompatActivity implements PostServices.Post
                 }
 
             } else {
-                res.setText("Email Incorect.");
-                res.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.hint_text)));
-                res.setVisibility(View.VISIBLE);
+
+                Toast.makeText(this, "Email Incorect", Toast.LENGTH_LONG).show();
             }
 
         } else {
-            res.setText("Please Fill the form first");
-            res.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.hint_text)));
-            res.setVisibility(View.VISIBLE);
+            Toast.makeText(this, "Please Fill the form first", Toast.LENGTH_LONG).show();
+
         }
     }
 
@@ -142,10 +139,8 @@ public class MainActivity extends AppCompatActivity implements PostServices.Post
             Toast.makeText(this, "Error In Login response in success.", Toast.LENGTH_LONG).show();
         }
         Toast.makeText(this, "Login Successfully", Toast.LENGTH_LONG).show();
-        TextView res = findViewById(R.id.result_login);
-        res.setText("Login Successfully");
-        res.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.hint_text)));
-        res.setVisibility(View.VISIBLE);
+
+
         if (CheckRemember.isChecked()) {
             String email = userEmail.getText().toString();
             String pass = password.getText().toString();
@@ -157,10 +152,6 @@ public class MainActivity extends AppCompatActivity implements PostServices.Post
     public void onPostFailure(ApiResponse response) {
         // if email or password incorrect 
         Toast.makeText(this, response.ErrorMessage.get(0), Toast.LENGTH_LONG).show();
-        TextView res = findViewById(R.id.result_login);
-        res.setText(response.ErrorMessage.get(0));
-        res.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.hint_text)));
-        res.setVisibility(View.VISIBLE);
     }
 
 
@@ -188,14 +179,12 @@ public class MainActivity extends AppCompatActivity implements PostServices.Post
                 // add & append content
                 line += Character.toString((char) size);
             }
-            if (line != null) {
-                String[] strSplict = line.split(",");
-                userEmail.setText(strSplict[0]);
-                password.setText(strSplict[1]);
-                CheckRemember.setButtonTintList(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.main)));
-                CheckRemember.setChecked(true);
-                _fileReader.close();
-            }
+            String[] strSplict = line.split(",");
+            userEmail.setText(strSplict[0]);
+            password.setText(strSplict[1]);
+            CheckRemember.setButtonTintList(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.main)));
+            CheckRemember.setChecked(true);
+            _fileReader.close();
         } catch (Exception e) {
         } finally {
             try {
