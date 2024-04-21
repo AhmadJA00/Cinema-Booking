@@ -47,7 +47,7 @@ public class forgetPassword3 extends AppCompatActivity implements PostServices.P
         String cPass = txtConfirmPassword.getText().toString();
 
         if (!pass.equals("") && !cPass.equals("")) {
-            if (!pass.equals(cPass)) {
+            if (pass.equals(cPass)) {
                 txtResult.setText("Opsss, Your confrim Password must be the same as Password");
                 txtResult.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.hint_text)));
                 txtResult.setVisibility(View.VISIBLE);
@@ -64,7 +64,7 @@ public class forgetPassword3 extends AppCompatActivity implements PostServices.P
 
             } else {
                 txtResult.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.grayText)));
-                txtResult.setText("Your Password has been updated");
+                txtResult.setText("Password not equal ConfiramPassword");
                 txtResult.setVisibility(View.VISIBLE);
             }
         } else {
@@ -84,6 +84,8 @@ public class forgetPassword3 extends AppCompatActivity implements PostServices.P
             Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
         }
         Toast.makeText(this, StrMessage, Toast.LENGTH_LONG).show();
+        Intent HomePage =new Intent(this, buyTicketCity.class);
+        startActivity(HomePage);
     }
 
     @Override
