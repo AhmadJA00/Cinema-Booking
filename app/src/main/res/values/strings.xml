@@ -13,9 +13,9 @@
     <string name="verified">Verified</string>
     <string name="changeEmail">Change Email</string>
     <string name="forgetPassowrd">Forget Passowrd</string>
-    <string name="dontHaveAccount">Don't have an acccount?</string>
+    <string name="dontHaveAccount">Don`t have an acccount?</string>
     <string name="pleaseEnterEmail">Please enter your Email Address to recover your password</string>
-    <string name="didntReciveCode">Didn't recieve a code?</string>
+    <string name="didntReciveCode">Didn`t recieve a code?</string>
     <string name="haveAccount">Already have an account?</string>
     <string name="successfullyVerified">You have successfully verified your account</string>
     <string name="resendCode">Resend Code</string>

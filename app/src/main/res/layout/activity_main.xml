@@ -36,7 +36,7 @@
         android:id="@+id/email_sing_up"
         android:layout_width="300dp"
         android:layout_height="60dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/border_input"
         android:elevation="20dp"
         android:ems="10"
@@ -47,7 +47,7 @@
         android:textColor="@color/hint_text"
         android:textColorHint="@color/hint_text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login" />
 
@@ -130,6 +130,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
@@ -146,13 +147,12 @@
             app:layout_constraintTop_toBottomOf="@+id/btnLogin"
             app:layout_constraintVertical_bias="0.0" />
 
-
         <TextView
             android:id="@+id/labSignUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginEnd="4dp"
             android:layout_marginBottom="16dp"
             android:text="@string/singUp"
             android:textColor="@color/main"
@@ -161,7 +161,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnLogin"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.076" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
