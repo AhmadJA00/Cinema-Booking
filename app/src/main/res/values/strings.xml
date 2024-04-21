@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">cinemanaBooking</string>
+    <string name="pleaseEnter4">Please enter 4 Digit code sent to </string>
+    <string name="logIn">Log In</string>
+    <string name="singUp">Sing Up</string>
+    <string name="email">Email</string>
+    <string name="verfiyEmail">Verfiy Your Email</string>
+    <string name="passowrd">Password</string>
+    <string name="confirmPassowrd">Confirm Password</string>
+    <string name="rememberMe">Remember Me</string>
+    <string name="done">Done</string>
+    <string name="verify">Verify</string>
+    <string name="verified">Verified</string>
+    <string name="changeEmail">Change Email</string>
+    <string name="forgetPassowrd">Forget Passowrd</string>
+    <string name="dontHaveAccount">Don't have an acccount?</string>
+    <string name="pleaseEnterEmail">Please enter your Email Address to recover your password</string>
+    <string name="didntReciveCode">Didn't recieve a code?</string>
+    <string name="haveAccount">Already have an account?</string>
+    <string name="successfullyVerified">You have successfully verified your account</string>
+    <string name="resendCode">Resend Code</string>
+    <string name="firstName">First Name</string>
+    <string name="lastName">Last Name</string>
+    <string name="dob">Date Of Birth</string>
 </resources>

@@ -16,14 +16,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/mainimage"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="-19dp" />
+        tools:layout_editor_absoluteY="-34dp" />
 
     <TextView
         android:id="@+id/login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="26dp"
-        android:text="Log In"
+        android:text="@string/logIn"
         android:textColor="@color/main"
         android:textSize="36dp"
         android:textStyle="bold"
@@ -39,7 +39,7 @@
         android:background="@drawable/border_input"
         android:elevation="20dp"
         android:ems="10"
-        android:hint="Email"
+        android:hint="@string/email"
         android:inputType="textEmailAddress"
         android:padding="16dp"
         android:shadowDx="@integer/material_motion_duration_long_2"
@@ -58,7 +58,7 @@
         android:background="@drawable/border_input"
         android:elevation="20dp"
         android:ems="10"
-        android:hint="Password"
+        android:hint="@string/passowrd"
         android:inputType="textPassword"
         android:padding="16dp"
         android:shadowDx="@integer/material_motion_duration_long_2"
@@ -89,7 +89,7 @@
             android:clickable="false"
             android:contextClickable="false"
             android:duplicateParentState="false"
-            android:text="Remeber Me"
+            android:text="@string/rememberMe"
             android:textColor="@color/grayText"
             android:textSize="11dp"
             tools:ignore="MissingConstraints"
@@ -100,7 +100,7 @@
             android:id="@+id/labForgotPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Fogot Password?"
+            android:text="@string/forgetPassowrd"
             android:textColor="@color/grayText"
             android:textSize="11dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -123,7 +123,7 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:background="@drawable/custome_button"
-            android:text="Log In"
+            android:text="@string/logIn"
             android:textColor="@color/white"
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -135,7 +135,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:text="Don't have an acccount?"
+            android:text="@string/dontHaveAccount"
             android:textColor="@color/grayText"
             android:textSize="20dp"
             android:textStyle="bold"
@@ -154,7 +154,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="16dp"
-            android:text="Sign Up"
+            android:text="@string/singUp"
             android:textColor="@color/main"
             android:textSize="20dp"
             android:textStyle="bold"
@@ -166,16 +166,4 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/result_login"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_margin="20dp"
-        android:gravity="center"
-        android:textColor="@color/hint_text"
-        android:textSize="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout4" />
 </androidx.constraintlayout.widget.ConstraintLayout>
