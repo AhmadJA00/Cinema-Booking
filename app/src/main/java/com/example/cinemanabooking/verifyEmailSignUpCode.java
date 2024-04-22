@@ -133,6 +133,8 @@ public class verifyEmailSignUpCode extends AppCompatActivity implements PostServ
             Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
         }
         Toast.makeText(this, StrMessage, Toast.LENGTH_LONG).show();
+        Intent HomePage =new Intent(this, buyTicketCity.class);
+        startActivity(HomePage);
     }
 
     @Override

@@ -139,8 +139,8 @@ public class MainActivity extends AppCompatActivity implements PostServices.Post
             Toast.makeText(this, "Error In Login response in success.", Toast.LENGTH_LONG).show();
         }
         Toast.makeText(this, "Login Successfully", Toast.LENGTH_LONG).show();
-
-
+        Intent HomePage =new Intent(this, buyTicketCity.class);
+        startActivity(HomePage);
         if (CheckRemember.isChecked()) {
             String email = userEmail.getText().toString();
             String pass = password.getText().toString();

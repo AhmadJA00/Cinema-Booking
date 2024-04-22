@@ -21,7 +21,6 @@ import org.w3c.dom.Text;
 
 public class forgetPassword3 extends AppCompatActivity implements PostServices.PostListener {
 
-    private TextView txtResult;
     private EditText txtPassword;
     private EditText txtConfirmPassword;
     private Button btnChnagePassword;
@@ -46,11 +45,7 @@ public class forgetPassword3 extends AppCompatActivity implements PostServices.P
         String cPass = txtConfirmPassword.getText().toString();
 
         if (!pass.equals("") && !cPass.equals("")) {
-            if (!pass.equals(cPass)) {
-                txtResult.setText("");
-                txtResult.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.hint_text)));
-                txtResult.setVisibility(View.VISIBLE);
-                Toast.makeText(this,"Opsss, Your confrim Password must be the same as Password",Toast.LENGTH_LONG).show();
+            if (pass.equals(cPass)) {
                 String Url = "api/Account/Reset-Password";
                 try {
                     JSONObject postData = new JSONObject();
@@ -63,15 +58,12 @@ public class forgetPassword3 extends AppCompatActivity implements PostServices.P
                 }
 
             } else {
-                Toast.makeText(this,"Your Password has been updated",Toast.LENGTH_LONG).show();
-
+                Toast.makeText(this, "Opsss, Your confrim Password must be the same as Password", Toast.LENGTH_LONG).show();
             }
         } else {
-            Toast.makeText(this,"Please Fill the form first",Toast.LENGTH_LONG).show();
-
+            Toast.makeText(this, "Please Fill the form first", Toast.LENGTH_LONG).show();
         }
     }
-
     @Override
     public void onPostSuccess(ApiResponse response) {
         String StrMessage = "";
@@ -82,6 +74,8 @@ public class forgetPassword3 extends AppCompatActivity implements PostServices.P
             Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
         }
         Toast.makeText(this, StrMessage, Toast.LENGTH_LONG).show();
+        Intent HomePage =new Intent(this, buyTicketCity.class);
+        startActivity(HomePage);
     }
 
     @Override
