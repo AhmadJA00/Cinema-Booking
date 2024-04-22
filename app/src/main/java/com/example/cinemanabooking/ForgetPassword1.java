@@ -49,7 +49,7 @@ public class ForgetPassword1 extends AppCompatActivity implements PostServices.P
                 new PostServices(this).execute(Url, postData.toString());
             }
             catch (Exception e){
-
+                Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
             }
         } else {
             Toast.makeText(this, "Email Incorrect.", Toast.LENGTH_LONG).show();

@@ -22,4 +22,8 @@
     <string name="firstName">First Name</string>
     <string name="lastName">Last Name</string>
     <string name="dob">Date Of Birth</string>
+    <string name="createNewPassword">Create New Password</string>
+    <string name="enterNewPassword">Please enter your new password</string>
+    <string name="newPassword">New Password</string>
+    <string name="change">Change</string>
 </resources>

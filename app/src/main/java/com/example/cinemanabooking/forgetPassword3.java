@@ -31,7 +31,6 @@ public class forgetPassword3 extends AppCompatActivity implements PostServices.P
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forget_password3);
-        txtResult = (TextView) findViewById(R.id.resultConfirmPass);
         txtPassword = (EditText) findViewById(R.id.newPassword);
         txtConfirmPassword = (EditText) findViewById(R.id.NewPasswordConfirm);
         btnChnagePassword = (Button) findViewById(R.id.btnChangePassword);
@@ -48,9 +47,10 @@ public class forgetPassword3 extends AppCompatActivity implements PostServices.P
 
         if (!pass.equals("") && !cPass.equals("")) {
             if (!pass.equals(cPass)) {
-                txtResult.setText("Opsss, Your confrim Password must be the same as Password");
+                txtResult.setText("");
                 txtResult.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.hint_text)));
                 txtResult.setVisibility(View.VISIBLE);
+                Toast.makeText(this,"Opsss, Your confrim Password must be the same as Password",Toast.LENGTH_LONG).show();
                 String Url = "api/Account/Reset-Password";
                 try {
                     JSONObject postData = new JSONObject();
@@ -63,14 +63,12 @@ public class forgetPassword3 extends AppCompatActivity implements PostServices.P
                 }
 
             } else {
-                txtResult.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.grayText)));
-                txtResult.setText("Your Password has been updated");
-                txtResult.setVisibility(View.VISIBLE);
+                Toast.makeText(this,"Your Password has been updated",Toast.LENGTH_LONG).show();
+
             }
         } else {
-            txtResult.setText("Please Fill the form first");
-            txtResult.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.hint_text)));
-            txtResult.setVisibility(View.VISIBLE);
+            Toast.makeText(this,"Please Fill the form first",Toast.LENGTH_LONG).show();
+
         }
     }
 
