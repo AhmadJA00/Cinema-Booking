@@ -17,17 +17,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-<<<<<<< HEAD
-            android:name=".buyTicketCinema"
-            android:exported="false" />
-        <activity
             android:name=".buyTicketCity"
-            android:exported="false" />
-        <activity
-            android:name=".verifyEmailSignUpCode"
-=======
-            android:name=".buyTicketCity"
->>>>>>> a7bf58f42b6e8e3fb4e7fc2242300c8423f1a9bd
             android:exported="false" />
         <activity
             android:name=".verifyEmailSignUpCode"
