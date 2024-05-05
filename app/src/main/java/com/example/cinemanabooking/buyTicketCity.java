@@ -18,9 +18,10 @@ public class buyTicketCity extends AppCompatActivity {
         ProgressBar cityProgressBar = findViewById(R.id.cityProgressBar);
         cityProgressBar.setProgress(100);
 
-        //to start on ticket
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavbar);
         bottomNavigationView.setSelectedItemId(R.id.ticket);
 
     }
 }
+
+

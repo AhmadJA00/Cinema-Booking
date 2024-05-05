@@ -25,13 +25,16 @@
     <item
         android:id="@+id/ticket"
         android:icon="@drawable/icon_ticket"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:title="" />
 
     <item
         android:id="@+id/profile"
+
         android:icon="@drawable/icon_profile"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:title="" />

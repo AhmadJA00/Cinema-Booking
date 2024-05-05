@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -17,13 +18,16 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ForgetPassword1 extends AppCompatActivity implements PostServices.PostListener {
-    private EditText Vemail;
+    private EditText txtEmail;
+    private Button btnCheckEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forget_password1);
-        Vemail = (EditText) findViewById(R.id.FPemail);
+        txtEmail = (EditText) findViewById(R.id.FPemail);
+        btnCheckEmail = (Button) findViewById(R.id.btnCheckEmail);
+        btnCheckEmail.setOnClickListener(this::ForgotPassword);
     }
 
     private static final Pattern VALID_EMAIL_ADDRESS_REGEX =
@@ -34,9 +38,9 @@ public class ForgetPassword1 extends AppCompatActivity implements PostServices.P
         return matcher.matches();
     }
 
-    public void forgetPass2(View v) {
+    private void ForgotPassword(View v) {
 
-        String strEmail = Vemail.getText().toString();
+        String strEmail = txtEmail.getText().toString();
         if (validateemail(strEmail)) {
             String Url = "api/Account/ForgotPassword";
             try {
@@ -45,7 +49,7 @@ public class ForgetPassword1 extends AppCompatActivity implements PostServices.P
                 new PostServices(this).execute(Url, postData.toString());
             }
             catch (Exception e){
-
+                Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
             }
         } else {
             Toast.makeText(this, "Email Incorrect.", Toast.LENGTH_LONG).show();
@@ -69,7 +73,7 @@ public class ForgetPassword1 extends AppCompatActivity implements PostServices.P
 
         Toast.makeText(this, StrMessage, Toast.LENGTH_LONG).show();
         Intent i = new Intent(this, forgetPassword2.class);
-        i.putExtra("Email", Vemail.getText().toString());
+        i.putExtra("Email", txtEmail.getText().toString());
         startActivity(i);
     }
 

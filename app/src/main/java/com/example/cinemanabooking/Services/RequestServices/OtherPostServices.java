@@ -30,7 +30,6 @@ public class OtherPostServices extends AsyncTask<String, Void, ApiResponse> {
         String Url = params[0];
         String JsonPost = params[1];
 
-
         try {
             URL url = new URL(Helper.BaseUrl + Url);
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
@@ -47,7 +46,7 @@ public class OtherPostServices extends AsyncTask<String, Void, ApiResponse> {
 
             int responseCode = urlConnection.getResponseCode();
 
-            if (responseCode == HttpURLConnection.HTTP_OK) {
+            if (responseCode == HttpURLConnection.HTTP_OK || responseCode == HttpURLConnection.HTTP_CREATED) {
 
                 InputStream inputStream = urlConnection.getInputStream();
                 BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));

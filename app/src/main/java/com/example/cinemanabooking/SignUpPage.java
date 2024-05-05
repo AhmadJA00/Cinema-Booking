@@ -25,20 +25,22 @@ import java.util.regex.Pattern;
 
 public class SignUpPage extends AppCompatActivity implements PostServices.PostListener {
     private final static String UrlRegister = "api/Account/Register";
-    Button DOB;
-    TextView res;
-    EditText fName;
-    EditText lName;
-    EditText userEmail;
-    EditText password;
-    EditText cPassword;
-    Button btn_sing_up;
+    private Button DOB;
+    private TextView res;
+    private EditText fName;
+    private EditText lName;
+    private EditText userEmail;
+    private EditText password;
+    private EditText cPassword;
+    private Button btn_sing_up;
+    private TextView labLoginPage;
+    private Button dateTimePicker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_page);
-        DOB = findViewById(R.id.DOB);
+        DOB = findViewById(R.id.btnDateTimePicker);
 
         res = findViewById(R.id.result);
         fName = findViewById(R.id.fname);
@@ -48,10 +50,15 @@ public class SignUpPage extends AppCompatActivity implements PostServices.PostLi
         cPassword = findViewById(R.id.signPasswordConfirm);
         btn_sing_up = (Button) findViewById(R.id.sing_up_button);
         btn_sing_up.setOnClickListener(this::signUp);
+        labLoginPage = (TextView) findViewById(R.id.labLoginPage);
+        labLoginPage.setOnClickListener(this::loginPage);
+        dateTimePicker = (Button) findViewById(R.id.btnDateTimePicker);
+        dateTimePicker.setOnClickListener(this::datePicker);
+
     }
 
 
-    public void loginPage(View v) {
+    private void loginPage(View v) {
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
     }
@@ -64,7 +71,7 @@ public class SignUpPage extends AppCompatActivity implements PostServices.PostLi
         return matcher.matches();
     }
 
-    public void signUp(View view) {
+    private void signUp(View view) {
 
 
         String f_name = fName.getText().toString();
@@ -96,11 +103,9 @@ public class SignUpPage extends AppCompatActivity implements PostServices.PostLi
                         postData.put("confirmPassword", cPass);
                         postData.put("acceptTerms", true);
                         new PostServices(this).execute(UrlRegister, postData.toString());
-
-                    }catch (Exception e){
+                    } catch (Exception e) {
                         Toast.makeText(this, "Error In pares to json", Toast.LENGTH_LONG).show();
                     }
-
 
 
                 } else {
@@ -116,11 +121,10 @@ public class SignUpPage extends AppCompatActivity implements PostServices.PostLi
             res.setVisibility(View.VISIBLE);
         }
 
-        Intent i = new Intent(this , SignUpVerify.class);
-        startActivity(i);
+
     }
 
-    public void datePicker(View view) {
+    private void datePicker(View view) {
         Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
         int month = calendar.get(Calendar.MONTH);
@@ -152,16 +156,19 @@ public class SignUpPage extends AppCompatActivity implements PostServices.PostLi
     @Override
     public void onPostSuccess(ApiResponse response) {
 
-        String strMessage ="";
+        String StrMessage = "";
         try {
             JSONObject JsonResponse = new JSONObject(response.Result.toString());
-            strMessage = JsonResponse.getString("result");
-        }
-        catch (Exception e){
-            Toast.makeText(this,"Error Find Message Successfully.", Toast.LENGTH_LONG).show();
+            StrMessage = JsonResponse.getString("result");
+        } catch (Exception e) {
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
         }
 
-        Toast.makeText(this, strMessage, Toast.LENGTH_LONG).show();
+        Intent VerifyPage = new Intent(this, verifyEmailSignUpCode.class);
+        String email = userEmail.getText().toString();
+        VerifyPage.putExtra("email", email);
+        startActivity(VerifyPage);
+        Toast.makeText(this, StrMessage, Toast.LENGTH_LONG).show();
     }
 
     @Override
