@@ -83,16 +83,11 @@ public class SignUpPage extends AppCompatActivity implements PostServices.PostLi
 
         if (!f_name.equals("") && !l_name.equals("") && !DOB_o.equals("") && !email.equals("") && !pass.equals("") && !cPass.equals("")) {
             if (!pass.equals(cPass) && pass.length() >= 6) {
-                res.setText("Opsss, Your confrim Password must be the same as Password, or Password length minimum 6 characters");
-                res.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.hint_text)));
-                res.setVisibility(View.VISIBLE);
-
+                Toast.makeText(this, "Opsss, Your confrim Password must be the same as Password, or Password length minimum 6 characters", Toast.LENGTH_LONG).show();
             } else {
 
                 if (validateemail(email)) {
-                    res.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.grayText)));
-                    res.setText("You have been reqister");
-                    res.setVisibility(View.VISIBLE);
+                    Toast.makeText(this, "You have been reqister", Toast.LENGTH_LONG).show();
                     try {
                         JSONObject postData = new JSONObject();
                         postData.put("firstName", f_name);
@@ -106,19 +101,14 @@ public class SignUpPage extends AppCompatActivity implements PostServices.PostLi
                     } catch (Exception e) {
                         Toast.makeText(this, "Error In pares to json", Toast.LENGTH_LONG).show();
                     }
-
-
                 } else {
-                    res.setText("Opsss, Your email Is Incorect.");
-                    res.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.hint_text)));
-                    res.setVisibility(View.VISIBLE);
+                    Toast.makeText(this, "Opsss, Your email Is Incorect.", Toast.LENGTH_LONG).show();
                 }
 
             }
         } else {
-            res.setText("Please Fill the form first");
-            res.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.hint_text)));
-            res.setVisibility(View.VISIBLE);
+            Toast.makeText(this, "Please Fill the form first", Toast.LENGTH_LONG).show();
+
         }
 
 

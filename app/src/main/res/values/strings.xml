@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">cinemanaBooking</string>
     <string name="pleaseEnter4">Please enter 4 Digit code sent to </string>
-    <string name="logIn">Log In</string>
-    <string name="singUp">Sing Up</string>
+    <string name="logIn">Login</string>
+    <string name="singUp">Sign Up</string>
     <string name="email">Email</string>
     <string name="verfiyEmail">Verfiy Your Email</string>
     <string name="passowrd">Password</string>
@@ -26,4 +26,6 @@
     <string name="enterNewPassword">Please enter your new password</string>
     <string name="newPassword">New Password</string>
     <string name="change">Change</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

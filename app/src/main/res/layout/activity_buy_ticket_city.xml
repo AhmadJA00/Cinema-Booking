@@ -175,16 +175,14 @@
                     />
             </LinearLayout>
 
-            <TableLayout
+            <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_marginHorizontal="5dp"
+                android:layout_marginTop="30sp"
+                android:layout_marginHorizontal="5sp"
+                android:rowCount="2"
+                android:columnCount="2"
                 android:layout_gravity="center_horizontal">
-
-                <TableRow
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -233,11 +231,7 @@
                             />
 
                     </LinearLayout>
-                </TableRow>
 
-                <TableRow
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -284,20 +278,19 @@
                             android:textColor="@color/main"
                             />
                     </LinearLayout>
-                </TableRow>
-            </TableLayout>
+            </GridLayout>
 
-            <Button
-                android:id="@+id/cityNextBtn"
-                android:layout_width="150dp"
-                android:layout_height="40dp"
-                android:background="@drawable/custome_button"
-                android:text="Next"
-                android:textColor="@color/white"
-                android:textAllCaps="false"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                />
+<!--            <Button-->
+<!--                android:id="@+id/cityNextBtn"-->
+<!--                android:layout_width="150dp"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:background="@drawable/custome_button"-->
+<!--                android:text="Next"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textAllCaps="false"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                />-->
 
         </LinearLayout>
     </FrameLayout>
