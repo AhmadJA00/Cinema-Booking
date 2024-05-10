@@ -7,11 +7,13 @@
     tools:context=".buyTicketCity">
 
     <FrameLayout
-        android:id="@+id/frame_container_erbil"
+        android:id="@+id/frame_container"
         android:layout_width="match_parent"
-        android:layout_height="833dp"
+        android:layout_height="800sp"
         android:layout_marginHorizontal="5dp"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="28dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -29,7 +31,6 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
@@ -46,12 +47,12 @@
                         android:layout_height="40dp"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
-                        android:background="@drawable/not_selected_btn"
+                        android:background="@drawable/custome_button"
                         android:gravity="center"
-                        android:onClick="backToCity"
+
                         android:text="City"
                         android:textAllCaps="false"
-                        android:textColor="@color/mainDarker"
+                        android:textColor="@color/white"
                         android:textSize="18sp" />
 
                     <TextView
@@ -60,11 +61,11 @@
                         android:layout_height="40dp"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
-                        android:background="@drawable/custome_button"
+                        android:background="@drawable/not_selected_btn"
                         android:gravity="center"
                         android:text="Cinema"
                         android:textAllCaps="false"
-                        android:textColor="@color/white"
+                        android:textColor="@color/mainDarker"
                         android:textSize="18sp" />
 
                     <TextView
@@ -95,6 +96,7 @@
 
                 </LinearLayout>
             </HorizontalScrollView>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -155,6 +157,7 @@
             </LinearLayout>
 
             <GridLayout
+                android:id="@+id/city_Layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -165,44 +168,52 @@
                 android:rowCount="2">
 
                 <LinearLayout
+                    android:id="@+id/erbil_layout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:orientation="vertical">
 
 
-                    <ImageView
+                    <ImageButton
+                        android:id="@+id/erbil_img"
                         android:layout_width="176dp"
-                        android:layout_height="211dp"
+                        android:layout_height="190dp"
                         android:layout_margin="10dp"
                         android:layout_marginBottom="10dp"
+                        android:onClick="erbilFragmentHandler"
                         android:orientation="vertical"
                         android:src="@drawable/erbil" />
 
                     <TextView
+                        android:id="@+id/erbil"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:text="Cinema one - Kurdistan"
+                        android:text="Erbil - Kurdistan"
                         android:textColor="@color/main"
                         android:textSize="18dp" />
 
                 </LinearLayout>
 
+
                 <LinearLayout
+                    android:id="@+id/sulimanye_layout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:orientation="vertical">
 
-                    <ImageView
-                        android:id="@+id/suliImg"
+                    <ImageButton
+                        android:id="@+id/sulimanye_img"
                         android:layout_width="176dp"
-                        android:layout_height="211dp"
+                        android:layout_height="190dp"
                         android:layout_margin="10dp"
+                        android:onClick="suliFragmentHandler"
                         android:src="@drawable/sulimanye" />
 
                     <TextView
+                        android:id="@+id/sulimanye"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -214,19 +225,22 @@
 
 
                 <LinearLayout
+                    android:id="@+id/kirkuk_layout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:orientation="vertical">
 
-                    <ImageView
-                        android:id="@+id/kirkukImg"
+                    <ImageButton
+                        android:id="@+id/kirkuk_img"
                         android:layout_width="176dp"
-                        android:layout_height="211dp"
+                        android:layout_height="190dp"
                         android:layout_margin="10dp"
+                        android:onClick="karkukFragmentHandler"
                         android:src="@drawable/kirkuk" />
 
                     <TextView
+                        android:id="@+id/kirkuk"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -236,19 +250,22 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/duhok_layout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:orientation="vertical">
 
-                    <ImageView
-                        android:id="@+id/duhokImg"
+                    <ImageButton
+                        android:id="@+id/duhok_img"
                         android:layout_width="176dp"
-                        android:layout_height="211dp"
+                        android:layout_height="190dp"
                         android:layout_margin="10dp"
+                        android:onClick="dhockFragmentHandler"
                         android:src="@drawable/duhok" />
 
                     <TextView
+                        android:id="@+id/duhok"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -256,6 +273,8 @@
                         android:textColor="@color/main"
                         android:textSize="18dp" />
                 </LinearLayout>
+
+
             </GridLayout>
 
 

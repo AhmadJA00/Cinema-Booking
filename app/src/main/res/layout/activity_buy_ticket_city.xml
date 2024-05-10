@@ -9,306 +9,320 @@
     <FrameLayout
         android:id="@+id/frame_container"
         android:layout_width="match_parent"
-        android:layout_height="833dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavbar"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="800dp"
+        android:layout_marginHorizontal="5dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="28dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+        <!--        <LinearLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="match_parent"-->
+        <!--            android:orientation="vertical">-->
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="33dp"
-            android:text="Welcome To Movie Ticket Booking"
-            android:textColor="@color/main"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            />
+        <!--            <TextView-->
+        <!--                android:id="@+id/textView"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_gravity="center_horizontal"-->
+        <!--                android:layout_marginTop="33dp"-->
+        <!--                android:text="Welcome To Movie Ticket Booking"-->
+        <!--                android:textColor="@color/main"-->
+        <!--                android:textSize="20sp"-->
+        <!--                android:textStyle="bold" />-->
 
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="30dp"
-            >
+        <!--            <HorizontalScrollView-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="40dp"-->
+        <!--                android:layout_marginTop="30dp">-->
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="horizontal" >
-                
-                <Button
-                    android:id="@+id/cityBtn"
-                    android:layout_width="100dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/gray_button"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginStart="10dp"
-                    android:text="City"
-                    android:textAllCaps="false"
-                    android:textSize="18sp"
-                    android:textColor="@color/mainDarker"
-                    />
+        <!--                <LinearLayout-->
+        <!--                    android:layout_width="wrap_content"-->
+        <!--                    android:layout_height="match_parent"-->
+        <!--                    android:orientation="horizontal">-->
 
-                <Button
-                    android:id="@+id/cinemaBtn"
-                    android:layout_width="100dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/not_selected_btn"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginStart="10dp"
-                    android:text="Cinema"
-                    android:textAllCaps="false"
-                    android:textSize="18sp"
-                    android:textColor="@color/mainDarker"
-                    />
+        <!--                    <TextView-->
+        <!--                        android:id="@+id/txtCitySection"-->
+        <!--                        android:layout_width="100dp"-->
+        <!--                        android:layout_height="40dp"-->
+        <!--                        android:layout_marginStart="10dp"-->
+        <!--                        android:layout_marginEnd="10dp"-->
+        <!--                        android:background="@drawable/gray_button"-->
+        <!--                        android:gravity="center"-->
+        <!--                        android:text="City"-->
+        <!--                        android:textAllCaps="false"-->
+        <!--                        android:textColor="@color/mainDarker"-->
+        <!--                        android:textSize="18sp" />-->
 
-                <Button
-                    android:id="@+id/moviesBtn"
-                    android:layout_width="100dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/not_selected_btn"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginStart="10dp"
-                    android:text="Movies"
-                    android:textAllCaps="false"
-                    android:textSize="18sp"
-                    android:textColor="@color/mainDarker"
-                    />
+        <!--                    <TextView-->
+        <!--                        android:id="@+id/txtCinemaSection"-->
+        <!--                        android:layout_width="100dp"-->
+        <!--                        android:layout_height="40dp"-->
+        <!--                        android:layout_marginStart="10dp"-->
+        <!--                        android:layout_marginEnd="10dp"-->
+        <!--                        android:background="@drawable/gray_button"-->
+        <!--                        android:gravity="center"-->
+        <!--                        android:text="Cinema"-->
+        <!--                        android:textAllCaps="false"-->
+        <!--                        android:textColor="@color/mainDarker"-->
+        <!--                        android:textSize="18sp" />-->
 
-                <Button
-                    android:id="@+id/seatsBtn"
-                    android:layout_width="100dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/not_selected_btn"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginStart="10dp"
-                    android:text="Seats"
-                    android:textAllCaps="false"
-                    android:textSize="18sp"
-                    android:textColor="@color/mainDarker"
-                    />
+        <!--                    <TextView-->
+        <!--                        android:id="@+id/txtMoviesSection"-->
+        <!--                        android:layout_width="100dp"-->
+        <!--                        android:layout_height="40dp"-->
+        <!--                        android:layout_marginStart="10dp"-->
+        <!--                        android:layout_marginEnd="10dp"-->
+        <!--                        android:background="@drawable/not_selected_btn"-->
+        <!--                        android:gravity="center"-->
+        <!--                        android:text="Movies"-->
+        <!--                        android:textAllCaps="false"-->
+        <!--                        android:textColor="@color/mainDarker"-->
+        <!--                        android:textSize="18sp" />-->
 
-                <Button
-                    android:id="@+id/servicesBtn"
-                    android:layout_width="100dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/not_selected_btn"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginStart="10dp"
-                    android:text="Services"
-                    android:textAllCaps="false"
-                    android:textSize="18sp"
-                    android:textColor="@color/mainDarker"
-                    />
+        <!--                    <TextView-->
+        <!--                        android:layout_width="100dp"-->
+        <!--                        android:layout_height="40dp"-->
+        <!--                        android:layout_marginStart="10dp"-->
+        <!--                        android:layout_marginEnd="10dp"-->
+        <!--                        android:background="@drawable/not_selected_btn"-->
+        <!--                        android:gravity="center"-->
+        <!--                        android:text="Seats"-->
+        <!--                        android:textAllCaps="false"-->
+        <!--                        android:textColor="@color/mainDarker"-->
+        <!--                        android:textSize="18sp" />-->
 
-                <Button
-                    android:id="@+id/resultBtn"
-                    android:layout_width="100dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/not_selected_btn"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginStart="10dp"
-                    android:text="Result"
-                    android:textAllCaps="false"
-                    android:textSize="18sp"
-                    android:textColor="@color/mainDarker"
-                    />
-                
-            </LinearLayout>
-        </HorizontalScrollView>
+        <!--                    <TextView-->
+        <!--                        android:id="@+id/servicesBtn"-->
+        <!--                        android:layout_width="100dp"-->
+        <!--                        android:layout_height="40dp"-->
+        <!--                        android:layout_marginStart="10dp"-->
+        <!--                        android:layout_marginEnd="10dp"-->
+        <!--                        android:background="@drawable/not_selected_btn"-->
+        <!--                        android:gravity="center"-->
+        <!--                        android:text="Services"-->
+        <!--                        android:textAllCaps="false"-->
+        <!--                        android:textColor="@color/mainDarker"-->
+        <!--                        android:textSize="18sp" />-->
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:paddingTop="10dp"
-                android:layout_marginTop="20dp">
+        <!--                    <TextView-->
+        <!--                        android:id="@+id/resultBtn"-->
+        <!--                        android:layout_width="100dp"-->
+        <!--                        android:layout_height="40dp"-->
+        <!--                        android:layout_marginStart="10dp"-->
+        <!--                        android:layout_marginEnd="10dp"-->
+        <!--                        android:background="@drawable/not_selected_btn"-->
+        <!--                        android:gravity="center"-->
+        <!--                        android:text="Result"-->
+        <!--                        android:textAllCaps="false"-->
+        <!--                        android:textColor="@color/mainDarker"-->
+        <!--                        android:textSize="18sp" />-->
 
-                <ProgressBar
-                    android:id="@+id/cityProgressBar"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="60dp"
-                    android:layout_height="7dp"
-                    android:layout_marginEnd="5dp"
-                    />
-                <ProgressBar
-                    android:id="@+id/cinemaProgressBar"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="60dp"
-                    android:layout_height="7dp"
-                    android:layout_marginEnd="5dp"
-                    />
-                <ProgressBar
-                    android:id="@+id/moviesProgressBar"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="60dp"
-                    android:layout_height="7dp"
-                    android:layout_marginEnd="5dp"
-                    />
-                <ProgressBar
-                    android:id="@+id/seatsProgressBar"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="60dp"
-                    android:layout_height="7dp"
-                    android:layout_marginEnd="5dp"
-                    />
-                <ProgressBar
-                    android:id="@+id/servicesProgressBar"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="60dp"
-                    android:layout_height="7dp"
-                    android:layout_marginEnd="5dp"
-                    />
-                <ProgressBar
-                    android:id="@+id/ProgressBar"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="60dp"
-                    android:layout_height="7dp"
-                    android:layout_marginEnd="5dp"
-                    />
-            </LinearLayout>
-
-            <GridLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30sp"
-                android:layout_marginHorizontal="5sp"
-                android:rowCount="2"
-                android:columnCount="2"
-                android:layout_gravity="center_horizontal">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginBottom="10dp">
-                        <ImageView
-                        android:id="@+id/erbilImg"
-                        android:layout_width="176dp"
-                        android:layout_height="211dp"
-                        android:src="@drawable/erbil"
-                        android:layout_margin="10dp"
-                        />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Erbil - Kurdistan"
-                            android:layout_gravity="center_horizontal"
-                            android:textSize="18dp"
-                            android:textColor="@color/main"
-                            />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginBottom="10dp">
-                        <ImageView
-                            android:id="@+id/suliImg"
-                            android:layout_width="176dp"
-                            android:layout_height="211dp"
-                            android:src="@drawable/sulimanye"
-                            android:layout_margin="10dp"
-                            />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Sulimanyah - Kurdistan"
-                            android:layout_gravity="center_horizontal"
-                            android:textSize="18dp"
-                            android:textColor="@color/main"
-                            />
-
-                    </LinearLayout>
+        <!--                </LinearLayout>-->
+        <!--            </HorizontalScrollView>-->
 
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginBottom="10dp">
-                        <ImageView
-                            android:id="@+id/kirkukImg"
-                            android:layout_width="176dp"
-                            android:layout_height="211dp"
-                            android:src="@drawable/kirkuk"
-                            android:layout_margin="10dp"
-                            />
+        <!--            <LinearLayout-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_marginTop="20dp"-->
+        <!--                android:orientation="horizontal"-->
+        <!--                android:paddingStart="10dp"-->
+        <!--                android:paddingTop="10dp"-->
+        <!--                android:paddingEnd="10dp">-->
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Kirkuk - Kurdistan"
-                            android:layout_gravity="center_horizontal"
-                            android:textSize="18dp"
-                            android:textColor="@color/main"
-                            />
-                    </LinearLayout>
+        <!--                <ProgressBar-->
+        <!--                    android:id="@+id/cityProgressBar"-->
+        <!--                    style="?android:attr/progressBarStyleHorizontal"-->
+        <!--                    android:layout_width="60dp"-->
+        <!--                    android:layout_height="7dp"-->
+        <!--                    android:layout_marginEnd="5dp"-->
+        <!--                    android:progressDrawable="@drawable/progress_bar_style" />-->
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginBottom="10dp">
-                        <ImageView
-                            android:id="@+id/duhokImg"
-                            android:layout_width="176dp"
-                            android:layout_height="211dp"
-                            android:src="@drawable/duhok"
-                            android:layout_margin="10dp"
-                            />
+        <!--                <ProgressBar-->
+        <!--                    android:id="@+id/cinemaProgressBar"-->
+        <!--                    style="?android:attr/progressBarStyleHorizontal"-->
+        <!--                    android:layout_width="60dp"-->
+        <!--                    android:layout_height="7dp"-->
+        <!--                    android:layout_marginEnd="5dp"-->
+        <!--                    android:progressDrawable="@drawable/progress_bar_style" />-->
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Duhok - Kurdistan"
-                            android:layout_gravity="center_horizontal"
-                            android:textSize="18dp"
-                            android:textColor="@color/main"
-                            />
-                    </LinearLayout>
-            </GridLayout>
+        <!--                <ProgressBar-->
+        <!--                    android:id="@+id/moviesProgressBar"-->
+        <!--                    style="?android:attr/progressBarStyleHorizontal"-->
+        <!--                    android:layout_width="60dp"-->
+        <!--                    android:layout_height="7dp"-->
+        <!--                    android:layout_marginEnd="5dp"-->
+        <!--                    android:progressDrawable="@drawable/progress_bar_style" />-->
 
-<!--            <Button-->
-<!--                android:id="@+id/cityNextBtn"-->
-<!--                android:layout_width="150dp"-->
-<!--                android:layout_height="40dp"-->
-<!--                android:background="@drawable/custome_button"-->
-<!--                android:text="Next"-->
-<!--                android:textColor="@color/white"-->
-<!--                android:textAllCaps="false"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                />-->
+        <!--                <ProgressBar-->
+        <!--                    android:id="@+id/seatsProgressBar"-->
+        <!--                    style="?android:attr/progressBarStyleHorizontal"-->
+        <!--                    android:layout_width="60dp"-->
+        <!--                    android:layout_height="7dp"-->
+        <!--                    android:layout_marginEnd="5dp"-->
+        <!--                    android:progressDrawable="@drawable/progress_bar_style" />-->
 
-        </LinearLayout>
+        <!--                <ProgressBar-->
+        <!--                    android:id="@+id/servicesProgressBar"-->
+        <!--                    style="?android:attr/progressBarStyleHorizontal"-->
+        <!--                    android:layout_width="60dp"-->
+        <!--                    android:layout_height="7dp"-->
+        <!--                    android:layout_marginEnd="5dp"-->
+        <!--                    android:progressDrawable="@drawable/progress_bar_style" />-->
+
+        <!--                <ProgressBar-->
+        <!--                    android:id="@+id/ProgressBar"-->
+        <!--                    style="?android:attr/progressBarStyleHorizontal"-->
+        <!--                    android:layout_width="60dp"-->
+        <!--                    android:layout_height="7dp"-->
+        <!--                    android:layout_marginEnd="5dp"-->
+        <!--                    android:progressDrawable="@drawable/progress_bar_style" />-->
+        <!--            </LinearLayout>-->
+
+        <!--            <GridLayout-->
+        <!--                android:id="@+id/city_Layout"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_gravity="center_horizontal"-->
+        <!--                android:layout_marginHorizontal="5sp"-->
+        <!--                android:layout_marginTop="30sp"-->
+        <!--                android:columnCount="2"-->
+        <!--                android:gravity="center_horizontal"-->
+        <!--                android:rowCount="2">-->
+
+        <!--                &lt;!&ndash;                <LinearLayout&ndash;&gt;-->
+        <!--                &lt;!&ndash;                    android:id="@+id/erbil_layout"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                    android:layout_marginBottom="10dp"&ndash;&gt;-->
+
+        <!--                &lt;!&ndash;                    android:orientation="vertical">&ndash;&gt;-->
+
+
+        <!--                &lt;!&ndash;                    <ImageButton&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:id="@+id/erbil_img"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:layout_width="176dp"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:layout_height="211dp"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:layout_margin="10dp"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:layout_marginBottom="10dp"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:orientation="vertical"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:src="@drawable/erbil" />&ndash;&gt;-->
+
+        <!--                &lt;!&ndash;              &ndash;&gt;-->
+        <!--                &lt;!&ndash;                    <TextView&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:id="@+id/erbil"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:layout_width="wrap_content"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:layout_gravity="center_horizontal"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:text="Erbil - Kurdistan"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:textColor="@color/main"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:textSize="18dp" />&ndash;&gt;-->
+
+        <!--                &lt;!&ndash;                </LinearLayout>&ndash;&gt;-->
+        <!--                &lt;!&ndash;                <Button&ndash;&gt;-->
+        <!--                &lt;!&ndash;                    android:id="@+id/button2"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                    android:onClick="erbilFragmentHandler"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                    android:layout_row="0"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                    &ndash;&gt;-->
+        <!--                &lt;!&ndash;                    android:text="Button" />&ndash;&gt;-->
+
+        <!--                &lt;!&ndash;                <LinearLayout&ndash;&gt;-->
+        <!--                &lt;!&ndash;                    android:id="@+id/sulimanye_layout"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                    android:layout_marginBottom="10dp"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                    android:orientation="vertical">&ndash;&gt;-->
+
+        <!--                &lt;!&ndash;                    <ImageButton&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:id="@+id/sulimanye_img"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:layout_width="176dp"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:layout_height="211dp"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:layout_margin="10dp"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:src="@drawable/sulimanye" />&ndash;&gt;-->
+
+        <!--                &lt;!&ndash;                    <TextView&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:id="@+id/sulimanye"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:layout_width="wrap_content"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:layout_gravity="center_horizontal"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:text="Sulimanyah - Kurdistan"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:textColor="@color/main"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:textSize="18dp" />&ndash;&gt;-->
+
+        <!--                &lt;!&ndash;                </LinearLayout>&ndash;&gt;-->
+
+
+        <!--                &lt;!&ndash;                <LinearLayout&ndash;&gt;-->
+        <!--                &lt;!&ndash;                    android:id="@+id/kirkuk_layout"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                    android:layout_marginBottom="10dp"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                    android:orientation="vertical">&ndash;&gt;-->
+
+        <!--                &lt;!&ndash;                    <ImageButton&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:id="@+id/kirkuk_img"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:layout_width="176dp"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:layout_height="211dp"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:layout_margin="10dp"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:src="@drawable/kirkuk" />&ndash;&gt;-->
+
+        <!--                &lt;!&ndash;                    <TextView&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:id="@+id/kirkuk"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:layout_width="wrap_content"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:layout_gravity="center_horizontal"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:text="Kirkuk - Kurdistan"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:textColor="@color/main"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:textSize="18dp" />&ndash;&gt;-->
+        <!--                &lt;!&ndash;                </LinearLayout>&ndash;&gt;-->
+
+        <!--                &lt;!&ndash;                <LinearLayout&ndash;&gt;-->
+        <!--                &lt;!&ndash;                    android:id="@+id/duhok_layout"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                    android:layout_marginBottom="10dp"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                    android:orientation="vertical">&ndash;&gt;-->
+
+        <!--                &lt;!&ndash;                    <ImageButton&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:id="@+id/duhok_img"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:layout_width="176dp"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:layout_height="211dp"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:layout_margin="10dp"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:src="@drawable/duhok" />&ndash;&gt;-->
+
+        <!--                &lt;!&ndash;                    <TextView&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:id="@+id/duhok"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:layout_width="wrap_content"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:layout_gravity="center_horizontal"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:text="Duhok - Kurdistan"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:textColor="@color/main"&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        android:textSize="18dp" />&ndash;&gt;-->
+        <!--                &lt;!&ndash;                </LinearLayout>&ndash;&gt;-->
+
+
+        <!--            </GridLayout>-->
+
+
+        <!--        </LinearLayout>-->
     </FrameLayout>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_nav_menu"
-        app:itemIconTint="@null"
-        app:itemIconSize="35dp"
-        app:labelVisibilityMode="unlabeled"
-        app:itemActiveIndicatorStyle="@style/App.Custom.Indicator"
-        />
+<!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--        android:id="@+id/bottomNavbar"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@color/white"-->
+<!--        app:itemActiveIndicatorStyle="@style/App.Custom.Indicator"-->
+<!--        app:itemIconSize="35dp"-->
+<!--        app:itemIconTint="@drawable/navbar_icon_color_set"-->
+<!--        app:labelVisibilityMode="unlabeled"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:menu="@menu/bottom_nav_menu" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,14 +1,266 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".suli_fragment">
+    tools:context=".buyTicketCity">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <FrameLayout
+        android:id="@+id/frame_container_erbil"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="833dp"
+        android:layout_marginHorizontal="5dp"
+        app:layout_constraintTop_toTopOf="parent">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="33dp"
+                android:text="Welcome To Movie Ticket Booking"
+                android:textColor="@color/main"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="30dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/txtCitySection"
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/not_selected_btn"
+                        android:gravity="center"
+                        android:onClick="backToCity"
+                        android:text="City"
+                        android:textAllCaps="false"
+                        android:textColor="@color/mainDarker"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/txtCinemaSection"
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/custome_button"
+                        android:gravity="center"
+                        android:text="Cinema"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/txtMoviesSection"
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/not_selected_btn"
+                        android:gravity="center"
+                        android:text="Movies"
+                        android:textAllCaps="false"
+                        android:textColor="@color/mainDarker"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/not_selected_btn"
+                        android:gravity="center"
+                        android:text="Seats"
+                        android:textAllCaps="false"
+                        android:textColor="@color/mainDarker"
+                        android:textSize="18sp" />
+
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:paddingStart="10dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="10dp">
+
+                <ProgressBar
+                    android:id="@+id/cityProgressBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="60dp"
+                    android:layout_height="7dp"
+                    android:layout_marginEnd="5dp"
+                    android:progressDrawable="@drawable/progress_bar_style" />
+
+                <ProgressBar
+                    android:id="@+id/cinemaProgressBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="60dp"
+                    android:layout_height="7dp"
+                    android:layout_marginEnd="5dp"
+                    android:progressDrawable="@drawable/progress_bar_style" />
+
+                <ProgressBar
+                    android:id="@+id/moviesProgressBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="60dp"
+                    android:layout_height="7dp"
+                    android:layout_marginEnd="5dp"
+                    android:progressDrawable="@drawable/progress_bar_style" />
+
+                <ProgressBar
+                    android:id="@+id/seatsProgressBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="60dp"
+                    android:layout_height="7dp"
+                    android:layout_marginEnd="5dp"
+                    android:progressDrawable="@drawable/progress_bar_style" />
+
+                <ProgressBar
+                    android:id="@+id/servicesProgressBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="60dp"
+                    android:layout_height="7dp"
+                    android:layout_marginEnd="5dp"
+                    android:progressDrawable="@drawable/progress_bar_style" />
+
+                <ProgressBar
+                    android:id="@+id/ProgressBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="60dp"
+                    android:layout_height="7dp"
+                    android:layout_marginEnd="5dp"
+                    android:progressDrawable="@drawable/progress_bar_style" />
+            </LinearLayout>
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginHorizontal="5sp"
+                android:layout_marginTop="30sp"
+                android:columnCount="2"
+                android:gravity="center_horizontal"
+                android:rowCount="2">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="vertical">
+
+
+                    <ImageView
+                        android:layout_width="176dp"
+                        android:layout_height="211dp"
+                        android:layout_margin="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="vertical"
+                        android:src="@drawable/erbil" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="Cinema one - Kurdistan"
+                        android:textColor="@color/main"
+                        android:textSize="18dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/suliImg"
+                        android:layout_width="176dp"
+                        android:layout_height="211dp"
+                        android:layout_margin="10dp"
+                        android:src="@drawable/sulimanye" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="Sulimanyah - Kurdistan"
+                        android:textColor="@color/main"
+                        android:textSize="18dp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/kirkukImg"
+                        android:layout_width="176dp"
+                        android:layout_height="211dp"
+                        android:layout_margin="10dp"
+                        android:src="@drawable/kirkuk" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="Kirkuk - Kurdistan"
+                        android:textColor="@color/main"
+                        android:textSize="18dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/duhokImg"
+                        android:layout_width="176dp"
+                        android:layout_height="211dp"
+                        android:layout_margin="10dp"
+                        android:src="@drawable/duhok" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="Duhok - Kurdistan"
+                        android:textColor="@color/main"
+                        android:textSize="18dp" />
+                </LinearLayout>
+            </GridLayout>
+
+
+        </LinearLayout>
+    </FrameLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
