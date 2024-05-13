@@ -156,7 +156,7 @@ public class verifyEmailSignUpCode extends AppCompatActivity implements PostServ
                 String url = "api/Account/Verify-Email";
                 JSONObject postData = new JSONObject();
                 postData.put("token", verifyCode);
-                new PostServices(this).execute(url, postData.toString());
+                new PostServices(this).execute(url, postData.toString(),"");
             } catch (Exception e) {
                 Toast.makeText(this, "Send Json error.", Toast.LENGTH_LONG).show();
             }
@@ -171,7 +171,7 @@ public class verifyEmailSignUpCode extends AppCompatActivity implements PostServ
         try {
             JSONObject postData = new JSONObject();
             postData.put("email", strEmail);
-            new OtherPostServices(this).execute(Url, postData.toString());
+            new OtherPostServices(this).execute(Url, postData.toString(),"");
         } catch (Exception e) {
             Toast.makeText(this, "Error In pares Json", Toast.LENGTH_LONG).show();
         }

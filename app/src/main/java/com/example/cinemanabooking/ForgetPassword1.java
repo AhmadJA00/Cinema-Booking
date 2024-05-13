@@ -46,7 +46,7 @@ public class ForgetPassword1 extends AppCompatActivity implements PostServices.P
             try {
                 JSONObject postData = new JSONObject();
                 postData.put("email", strEmail);
-                new PostServices(this).execute(Url, postData.toString());
+                new PostServices(this).execute(Url, postData.toString(),"");
             }
             catch (Exception e){
                 Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
