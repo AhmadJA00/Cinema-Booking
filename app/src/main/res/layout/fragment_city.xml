@@ -94,6 +94,8 @@
                         android:textSize="18sp" />
 
 
+
+
                 </LinearLayout>
             </HorizontalScrollView>
 
@@ -103,68 +105,40 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:orientation="horizontal"
-                android:paddingStart="10dp"
-                android:paddingTop="10dp"
-                android:paddingEnd="10dp">
+                android:gravity="center"
+                android:padding="10dp">
 
-                <ProgressBar
-                    android:id="@+id/cityProgressBar"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="60dp"
+                <Button
+                    android:layout_width="84dp"
                     android:layout_height="7dp"
-                    android:layout_marginEnd="5dp"
-                    android:progressDrawable="@drawable/progress_bar_style" />
-
-                <ProgressBar
-                    android:id="@+id/cinemaProgressBar"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="60dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/custome_button" />
+                <Button
+                    android:layout_width="84dp"
                     android:layout_height="7dp"
-                    android:layout_marginEnd="5dp"
-                    android:progressDrawable="@drawable/progress_bar_style" />
-
-                <ProgressBar
-                    android:id="@+id/moviesProgressBar"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="60dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/gray_button" />
+                <Button
+                    android:layout_width="84dp"
                     android:layout_height="7dp"
-                    android:layout_marginEnd="5dp"
-                    android:progressDrawable="@drawable/progress_bar_style" />
-
-                <ProgressBar
-                    android:id="@+id/seatsProgressBar"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="60dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/gray_button" />
+                <Button
+                    android:layout_width="84dp"
                     android:layout_height="7dp"
-                    android:layout_marginEnd="5dp"
-                    android:progressDrawable="@drawable/progress_bar_style" />
-
-                <ProgressBar
-                    android:id="@+id/servicesProgressBar"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="60dp"
-                    android:layout_height="7dp"
-                    android:layout_marginEnd="5dp"
-                    android:progressDrawable="@drawable/progress_bar_style" />
-
-                <ProgressBar
-                    android:id="@+id/ProgressBar"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="60dp"
-                    android:layout_height="7dp"
-                    android:layout_marginEnd="5dp"
-                    android:progressDrawable="@drawable/progress_bar_style" />
-            </LinearLayout>
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/gray_button" />
+                  </LinearLayout>
 
             <GridLayout
                 android:id="@+id/city_Layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginHorizontal="5sp"
-                android:layout_marginTop="30sp"
-                android:columnCount="2"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginTop="10dp"
                 android:gravity="center_horizontal"
+                android:columnCount="2"
                 android:rowCount="2">
 
                 <LinearLayout
@@ -178,12 +152,13 @@
                     <ImageButton
                         android:id="@+id/erbil_img"
                         android:layout_width="176dp"
-                        android:layout_height="190dp"
+                        android:layout_height="211dp"
                         android:layout_margin="10dp"
                         android:layout_marginBottom="10dp"
                         android:onClick="erbilFragmentHandler"
                         android:orientation="vertical"
-                        android:src="@drawable/erbil" />
+                        android:src="@drawable/erbil"
+                        />
 
                     <TextView
                         android:id="@+id/erbil"
@@ -205,15 +180,15 @@
                     android:orientation="vertical">
 
                     <ImageButton
-                        android:id="@+id/sulimanye_img"
+                        android:id="@+id/imgErbilCity"
                         android:layout_width="176dp"
-                        android:layout_height="190dp"
+                        android:layout_height="211dp"
                         android:layout_margin="10dp"
                         android:onClick="suliFragmentHandler"
                         android:src="@drawable/sulimanye" />
 
                     <TextView
-                        android:id="@+id/sulimanye"
+                        android:id="@+id/txtSulimanye"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -232,15 +207,15 @@
                     android:orientation="vertical">
 
                     <ImageButton
-                        android:id="@+id/kirkuk_img"
+                        android:id="@+id/imgKirkukCity"
                         android:layout_width="176dp"
-                        android:layout_height="190dp"
+                        android:layout_height="211dp"
                         android:layout_margin="10dp"
                         android:onClick="karkukFragmentHandler"
                         android:src="@drawable/kirkuk" />
 
                     <TextView
-                        android:id="@+id/kirkuk"
+                        android:id="@+id/txtKirkuk"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -257,9 +232,9 @@
                     android:orientation="vertical">
 
                     <ImageButton
-                        android:id="@+id/duhok_img"
+                        android:id="@+id/imgDuhokCity"
                         android:layout_width="176dp"
-                        android:layout_height="190dp"
+                        android:layout_height="211dp"
                         android:layout_margin="10dp"
                         android:onClick="dhockFragmentHandler"
                         android:src="@drawable/duhok" />

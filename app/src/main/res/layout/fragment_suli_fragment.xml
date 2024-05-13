@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="33dp"
-                android:text="Welcome To Movie Ticket Booking"
+                android:text="@string/selectCinema"
                 android:textColor="@color/main"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -93,6 +93,7 @@
                         android:textSize="18sp" />
 
 
+
                 </LinearLayout>
             </HorizontalScrollView>
 
@@ -101,65 +102,37 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:orientation="horizontal"
-                android:paddingStart="10dp"
-                android:paddingTop="10dp"
-                android:paddingEnd="10dp">
+                android:gravity="center"
+                android:padding="10dp">
 
-                <ProgressBar
-                    android:id="@+id/cityProgressBar"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="60dp"
+                <Button
+                    android:layout_width="84dp"
                     android:layout_height="7dp"
-                    android:layout_marginEnd="5dp"
-                    android:progressDrawable="@drawable/progress_bar_style" />
-
-                <ProgressBar
-                    android:id="@+id/cinemaProgressBar"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="60dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/custome_button" />
+                <Button
+                    android:layout_width="84dp"
                     android:layout_height="7dp"
-                    android:layout_marginEnd="5dp"
-                    android:progressDrawable="@drawable/progress_bar_style" />
-
-                <ProgressBar
-                    android:id="@+id/moviesProgressBar"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="60dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/custome_button" />
+                <Button
+                    android:layout_width="84dp"
                     android:layout_height="7dp"
-                    android:layout_marginEnd="5dp"
-                    android:progressDrawable="@drawable/progress_bar_style" />
-
-                <ProgressBar
-                    android:id="@+id/seatsProgressBar"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="60dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/gray_button" />
+                <Button
+                    android:layout_width="84dp"
                     android:layout_height="7dp"
-                    android:layout_marginEnd="5dp"
-                    android:progressDrawable="@drawable/progress_bar_style" />
-
-                <ProgressBar
-                    android:id="@+id/servicesProgressBar"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="60dp"
-                    android:layout_height="7dp"
-                    android:layout_marginEnd="5dp"
-                    android:progressDrawable="@drawable/progress_bar_style" />
-
-                <ProgressBar
-                    android:id="@+id/ProgressBar"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="60dp"
-                    android:layout_height="7dp"
-                    android:layout_marginEnd="5dp"
-                    android:progressDrawable="@drawable/progress_bar_style" />
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/gray_button" />
             </LinearLayout>
 
             <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginHorizontal="5sp"
-                android:layout_marginTop="30sp"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginTop="10dp"
                 android:columnCount="2"
                 android:gravity="center_horizontal"
                 android:rowCount="2">
@@ -177,7 +150,7 @@
                         android:layout_margin="10dp"
                         android:layout_marginBottom="10dp"
                         android:orientation="vertical"
-                        android:src="@drawable/erbil" />
+                        android:src="@drawable/cinema2" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -200,7 +173,7 @@
                         android:layout_width="176dp"
                         android:layout_height="211dp"
                         android:layout_margin="10dp"
-                        android:src="@drawable/sulimanye" />
+                        android:src="@drawable/cinema1" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -224,7 +197,7 @@
                         android:layout_width="176dp"
                         android:layout_height="211dp"
                         android:layout_margin="10dp"
-                        android:src="@drawable/kirkuk" />
+                        android:src="@drawable/cinema4" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -246,7 +219,7 @@
                         android:layout_width="176dp"
                         android:layout_height="211dp"
                         android:layout_margin="10dp"
-                        android:src="@drawable/duhok" />
+                        android:src="@drawable/cinema3" />
 
                     <TextView
                         android:layout_width="wrap_content"

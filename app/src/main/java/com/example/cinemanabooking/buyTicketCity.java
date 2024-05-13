@@ -33,8 +33,6 @@ public class buyTicketCity extends AppCompatActivity {
         frameLayout = (FrameLayout) findViewById(R.id.frame_container);
         getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new city())
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit();
-
-
     }
 
     private void fragment_handler(int city) {
@@ -65,7 +63,6 @@ public class buyTicketCity extends AppCompatActivity {
     public void backToCity(View view) {
         fragment_handler(0);
     }
-
     public void erbilFragmentHandler(View view) {
         fragment_handler(1);
     }

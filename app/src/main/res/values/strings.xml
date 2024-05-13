@@ -26,6 +26,7 @@
     <string name="enterNewPassword">Please enter your new password</string>
     <string name="newPassword">New Password</string>
     <string name="change">Change</string>
+    <string name="selectCinema">Please select a cinema from below</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
