@@ -85,6 +85,7 @@ public class MainActivity extends AppCompatActivity implements PostServices.Post
         if (!email.equals("") && !pass.equals("")) {
             if (validateemail(email)) {
                 try {
+                    Helper._Token="";
                     JSONObject postData = new JSONObject();
                     postData.put("email", email);
                     postData.put("password", pass);
