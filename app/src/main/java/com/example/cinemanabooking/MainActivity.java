@@ -30,7 +30,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
-public class MainActivity extends AppCompatActivity implements PostServices.PostListener , GetServices.GetListener {
+public class MainActivity extends AppCompatActivity implements PostServices.PostListener {
     private Button btnLogin;
     private FileInputStream _fileReader = null;
     private  FileOutputStream _fileWriter = null;
@@ -142,10 +142,9 @@ public class MainActivity extends AppCompatActivity implements PostServices.Post
         } catch (Exception e) {
             Toast.makeText(this, "Error In Login response in success.", Toast.LENGTH_LONG).show();
         }
-//        Toast.makeText(this, "Login Successfully", Toast.LENGTH_LONG).show();
-//        Intent HomePage =new Intent(this, buyTicketCity.class);
-//        startActivity(HomePage);
-        new GetServices(this).execute("api/Account",Helper._Token);
+        Toast.makeText(this, "Login Successfully", Toast.LENGTH_LONG).show();
+        Intent HomePage =new Intent(this, buyTicketCity.class);
+        startActivity(HomePage);
         if (CheckRemember.isChecked()) {
             String email = userEmail.getText().toString();
             String pass = password.getText().toString();
@@ -197,16 +196,5 @@ public class MainActivity extends AppCompatActivity implements PostServices.Post
             } catch (Exception e) {
             }
         }
-    }
-
-
-    @Override
-    public void onGetSuccess(ApiResponse response) {
-
-    }
-
-    @Override
-    public void onGetFailure(ApiResponse response) {
-
     }
 }
