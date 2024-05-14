@@ -31,7 +31,6 @@ public class PostServices  extends AsyncTask<String, Void, ApiResponse> {
     protected ApiResponse doInBackground(String... params) {
         String Url = params[0];
         String JsonPost = params[1];
-        String bearerToken = params[2];
 
 
         try {
@@ -47,8 +46,8 @@ public class PostServices  extends AsyncTask<String, Void, ApiResponse> {
             writer.close();
             outputStream.close();
 
-            if (bearerToken != null && !bearerToken.isEmpty()) {
-                urlConnection.setRequestProperty("Authorization", "Bearer " + bearerToken);
+            if (Helper._Token != null && !Helper._Token.isEmpty()) {
+                urlConnection.setRequestProperty("Authorization", "Bearer " + Helper._Token);
             }
 
             int responseCode = urlConnection.getResponseCode();

@@ -27,15 +27,14 @@ public class GetServices extends AsyncTask<String, Void, ApiResponse> {
     @Override
     protected ApiResponse doInBackground(String... params) {
         String Url = params[0];
-        String bearerToken = params[1];
 
         try {
             URL url = new URL(Helper.BaseUrl + Url);
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod("GET");
 
-            if (bearerToken != null && !bearerToken.isEmpty()) {
-                urlConnection.setRequestProperty("Authorization", "Bearer " + bearerToken);
+            if (Helper._Token != null && !Helper._Token.isEmpty()) {
+                urlConnection.setRequestProperty("Authorization", "Bearer " + Helper._Token);
             }
 
             int responseCode = urlConnection.getResponseCode();

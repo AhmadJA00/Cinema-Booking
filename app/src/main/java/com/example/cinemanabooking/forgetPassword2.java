@@ -130,7 +130,7 @@ public class forgetPassword2 extends AppCompatActivity implements PostServices.P
         try {
             JSONObject postData = new JSONObject();
             postData.put("token", strToken);
-            new PostServices(this).execute(Url, postData.toString(),"");
+            new PostServices(this).execute(Url, postData.toString());
         } catch (Exception e) {
             Toast.makeText(this, "Error In pares Json", Toast.LENGTH_LONG).show();
         }
@@ -142,7 +142,7 @@ public class forgetPassword2 extends AppCompatActivity implements PostServices.P
         try {
             JSONObject postData = new JSONObject();
             postData.put("email", strEmail);
-            new OtherPostServices(this).execute(Url, postData.toString(),"");
+            new OtherPostServices(this).execute(Url, postData.toString());
         } catch (Exception e) {
             Toast.makeText(this, "Error In pares Json", Toast.LENGTH_LONG).show();
         }

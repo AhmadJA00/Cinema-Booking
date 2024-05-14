@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements PostServices.Post
                     JSONObject postData = new JSONObject();
                     postData.put("email", email);
                     postData.put("password", pass);
-                    new PostServices(this).execute(loginUrl, postData.toString(),"");
+                    new PostServices(this).execute(loginUrl, postData.toString());
 
                 } catch (Exception e) {
                     Toast.makeText(this, "Send Json error.", Toast.LENGTH_LONG).show();

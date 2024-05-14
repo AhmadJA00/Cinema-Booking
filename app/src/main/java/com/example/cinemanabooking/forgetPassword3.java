@@ -52,7 +52,7 @@ public class forgetPassword3 extends AppCompatActivity implements PostServices.P
                     postData.put("token", strToken);
                     postData.put("password", pass);
                     postData.put("confirmPassword", cPass);
-                    new PostServices(this).execute(Url, postData.toString(),"");
+                    new PostServices(this).execute(Url, postData.toString());
                 } catch (Exception e) {
                     Toast.makeText(this, "Error In pares Json", Toast.LENGTH_LONG).show();
                 }
