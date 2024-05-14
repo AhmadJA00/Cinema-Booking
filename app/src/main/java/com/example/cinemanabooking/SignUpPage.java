@@ -97,7 +97,7 @@ public class SignUpPage extends AppCompatActivity implements PostServices.PostLi
                         postData.put("password", pass);
                         postData.put("confirmPassword", cPass);
                         postData.put("acceptTerms", true);
-                        new PostServices(this).execute(UrlRegister, postData.toString());
+                        new PostServices(this).execute(UrlRegister, postData.toString(),"");
                     } catch (Exception e) {
                         Toast.makeText(this, "Error In pares to json", Toast.LENGTH_LONG).show();
                     }

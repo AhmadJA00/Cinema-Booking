@@ -52,7 +52,7 @@ public class forgetPassword3 extends AppCompatActivity implements PostServices.P
                     postData.put("token", strToken);
                     postData.put("password", pass);
                     postData.put("confirmPassword", cPass);
-                    new PostServices(this).execute(Url, postData.toString());
+                    new PostServices(this).execute(Url, postData.toString(),"");
                 } catch (Exception e) {
                     Toast.makeText(this, "Error In pares Json", Toast.LENGTH_LONG).show();
                 }
@@ -74,7 +74,7 @@ public class forgetPassword3 extends AppCompatActivity implements PostServices.P
             Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
         }
         Toast.makeText(this, StrMessage, Toast.LENGTH_LONG).show();
-        Intent HomePage =new Intent(this, buyTicketCity.class);
+        Intent HomePage =new Intent(this, MainActivity.class);
         startActivity(HomePage);
     }
 

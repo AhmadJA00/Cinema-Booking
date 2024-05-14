@@ -15,7 +15,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.cinemanabooking.Dtos.AccountDto.LoginResponseDto;
+import com.example.cinemanabooking.Hellper.Helper;
 import com.example.cinemanabooking.Services.ApiResponse;
+import com.example.cinemanabooking.Services.RequestServices.GetServices;
 import com.example.cinemanabooking.Services.RequestServices.PostServices;
 
 import org.json.JSONObject;
@@ -28,7 +30,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
-public class MainActivity extends AppCompatActivity implements PostServices.PostListener {
+public class MainActivity extends AppCompatActivity implements PostServices.PostListener , GetServices.GetListener {
     private Button btnLogin;
     private FileInputStream _fileReader = null;
     private  FileOutputStream _fileWriter = null;
@@ -86,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements PostServices.Post
                     JSONObject postData = new JSONObject();
                     postData.put("email", email);
                     postData.put("password", pass);
-                    new PostServices(this).execute(loginUrl, postData.toString());
+                    new PostServices(this).execute(loginUrl, postData.toString(),"");
 
                 } catch (Exception e) {
                     Toast.makeText(this, "Send Json error.", Toast.LENGTH_LONG).show();
@@ -136,12 +138,14 @@ public class MainActivity extends AppCompatActivity implements PostServices.Post
             _LoginResponse.refreshToken = JsonResponse.getJSONObject("result").getString("refreshToken");
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
             _LoginResponse.created = sdf.parse(JsonResponse.getJSONObject("result").getString("created"));
+            Helper._Token = _LoginResponse.token;
         } catch (Exception e) {
             Toast.makeText(this, "Error In Login response in success.", Toast.LENGTH_LONG).show();
         }
-        Toast.makeText(this, "Login Successfully", Toast.LENGTH_LONG).show();
-        Intent HomePage =new Intent(this, buyTicketCity.class);
-        startActivity(HomePage);
+//        Toast.makeText(this, "Login Successfully", Toast.LENGTH_LONG).show();
+//        Intent HomePage =new Intent(this, buyTicketCity.class);
+//        startActivity(HomePage);
+        new GetServices(this).execute("api/Account",Helper._Token);
         if (CheckRemember.isChecked()) {
             String email = userEmail.getText().toString();
             String pass = password.getText().toString();
@@ -196,4 +200,13 @@ public class MainActivity extends AppCompatActivity implements PostServices.Post
     }
 
 
+    @Override
+    public void onGetSuccess(ApiResponse response) {
+
+    }
+
+    @Override
+    public void onGetFailure(ApiResponse response) {
+
+    }
 }
